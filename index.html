@@ -10,8 +10,10 @@
     <style type="text/css">
         html{
             height: 100%;
-            background: linear-gradient( 134.6deg,  rgba(201,37,107,1) 15.4%, rgba(116,16,124,1) 74.7%);
+            background: linear-gradient( 180deg,  #ea8c09 , rgb(248, 240, 240) );
+            /* background-color: #b4b712d3; */
             overflow-x: hidden;
+            overflow-y: hidden;
         }
         body{
             background: transparent;
@@ -55,10 +57,10 @@
                 padding: 10px;
                 
             }
-            .search-box:hover > .search-txt{
+             .search-box:hover > .search-txt{
                 width: 240px;
                 padding: 0 6px;
-                top: 40px;
+                top: 40px; 
             }
             .search-box:hover > .search-btn{
             background:  #ffffff;
@@ -89,16 +91,54 @@
                 line-height: 40px;
                 width: 0px;
             }
+            footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                height: 60px;
+                
+            }
+            a, a:hover{
+                color: #15c1b6;
+            } 
+            a,a:focus, a:active {
+                text-decoration: none;
+                color: inherit;
+            }
+            .icon{
+            display: inline-block;
+            margin-top: 17px;
+            font-size: 35px;
+            animation: float 5s ease-in-out infinite;
+            }
+            .fa-facebook{
+                animation-delay: 1.3s;
+            }
+            .fa-whatsapp{
+                animation-delay: 2.3s;
+            }
+            @keyframes float{
+                0%{
+                    transform: translateY(0);
+                }
+                50%{
+                 transform: translateY(-15px);
+                }
+                100%{
+                    transform: translateY(0);
+                 }
+            }
     </style>
 </head>
 <body>
+    <!-- SSU logo and name section -->
     <div class="container-fluid">
     <img src="images/SSU-LOGO.png" width="95px" height="95px" style="float:left; margin-top: 5px;">
     <h1>SRI SRI</h1>
     <h1>UNIVERSITY</h1>
     </div>
     <hr>
-    
+    <!-- Search bar -->
     <div class="container-fluid"></div>
     <div class="search-box">
         <input class="search-txt" type="text" name="" placeholder="FOS-BDS/BCS-2020-23-000">
@@ -106,7 +146,14 @@
             <i class="fas fa-search"></i>
         </a>
     </div>
+    
     </div>
+    <footer>
+    <a href="https://www.instagram.com/srisriu/?hl=en"><i class="fa-brands fa-instagram icon "></i></a>
+    <a href="https://www.facebook.com/srisriu/"><i class="fa-brands fa-facebook icon"></i></a>
+    <a href="https://api.whatsapp.com/send?phone=917894424562&app=facebook&entry_point=page_cta&fbclid=IwAR1v0l5e_LWfKPMbodfzTZc10hOFVkq65_TsWx2FR1B5lL49iC2vyEmOwvQ"><i class="fa-brands fa-whatsapp icon"></i></a>
+    </footer>
+
     <script src="jquery-3.6.0.min.js" type="text/javascript">
         
 
