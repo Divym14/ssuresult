@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <title>SSU Results </title>
     <style type="text/css">
-      html{
+        html{
             height: 100%;
             background: linear-gradient( 134.6deg,  rgba(201,37,107,1) 15.4%, rgba(116,16,124,1) 74.7%);
             overflow-x: hidden;
@@ -33,7 +33,63 @@
             width: 600px ;
             background: linear-gradient(to right, rgb(255, 255, 255),rgba(255, 255, 255, 0.512), rgba(251, 251, 251, 0));
             }
-   </style>
+        #trophy{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            top: 10px;
+            width: 400px;
+            height: 450px;
+            
+        }
+        
+        .search-box{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                background: #2f3640;
+                height: 60px;
+                border-radius: 40px;
+                padding: 10px;
+                
+            }
+            .search-box:hover > .search-txt{
+                width: 240px;
+                padding: 0 6px;
+                top: 40px;
+            }
+            .search-box:hover > .search-btn{
+            background:  #ffffff;
+            
+                }
+            .search-btn{
+                color: #e84118;
+                float: right;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: #2f3640;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: 0.4s;
+                text-decoration: none;
+            }
+            .search-txt{
+                border: none;
+                background: none;
+                outline: none;
+                float: left;
+                padding: 0;
+                color: white;
+                font-size: 16px;
+                transition: 0.4s;   
+                line-height: 40px;
+                width: 0px;
+            }
+    </style>
 </head>
 <body>
     <div class="container-fluid">
@@ -42,6 +98,20 @@
     <h1>UNIVERSITY</h1>
     </div>
     <hr>
+    
+    <div class="container-fluid"></div>
+    <div class="search-box">
+        <input class="search-txt" type="text" name="" placeholder="FOS-BDS/BCS-2020-23-000">
+        <a class="search-btn" href="#">
+            <i class="fas fa-search"></i>
+        </a>
+    </div>
+    </div>
+    <script src="jquery-3.6.0.min.js" type="text/javascript">
+        
 
-  </body>
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+</body>
 </html>
