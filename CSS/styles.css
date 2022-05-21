@@ -1,0 +1,120 @@
+html{
+    height: 100%;
+    background: linear-gradient( 180deg,  #ea8c09 , rgb(248, 240, 240) );
+    /* background-color: #b4b712d3; */
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+body{
+    background: transparent;
+}
+h1{
+    color: #512504;
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    top: 5px;
+    left: 6px;
+    font-size:40px;
+}
+hr {
+    border: 0;
+    height: 5px;
+    width: 600px ;
+    background: linear-gradient(to right, rgb(255, 255, 255),rgba(255, 255, 255, 0.512), rgba(251, 251, 251, 0));
+    }
+#trophy{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    top: 10px;
+    width: 400px;
+    height: 450px;
+
+}
+
+.search-box{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background: #2f3640;
+        height: 60px;
+        border-radius: 40px;
+        padding: 10px;
+
+    }
+     .search-box:hover > .search-txt{
+        width: 240px;
+        padding: 0 6px;
+        top: 40px;
+    }
+    .search-box:hover > .search-btn{
+    background:  #ffffff;
+
+        }
+    .search-btn{
+        color: #e84118;
+        float: right;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #2f3640;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s;
+        text-decoration: none;
+    }
+    .search-txt{
+        border: none;
+        background: none;
+        outline: none;
+        float: left;
+        padding: 0;
+        color: white;
+        font-size: 16px;
+        transition: 0.4s;
+        line-height: 40px;
+        width: 0px;
+    }
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 60px;
+
+    }
+    a, a:hover{
+        color: #15c1b6;
+    }
+    a,a:focus, a:active {
+        text-decoration: none;
+        color: inherit;
+    }
+    .icon{
+    display: inline-block;
+    margin-top: 17px;
+    font-size: 35px;
+    animation: float 5s ease-in-out infinite;
+    }
+    .fa-facebook{
+        animation-delay: 1.3s;
+    }
+    .fa-whatsapp{
+        animation-delay: 2.3s;
+    }
+    @keyframes float{
+        0%{
+            transform: translateY(0);
+        }
+        50%{
+         transform: translateY(-15px);
+        }
+        100%{
+            transform: translateY(0);
+         }
+    }
