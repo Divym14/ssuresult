@@ -107,6 +107,22 @@ hr {
     .fa-whatsapp{
         animation-delay: 2.3s;
     }
+
+    /* footer icons hover effects */
+
+    .fa-facebook:hover{
+        color:blue;
+    }
+
+    .fa-whatsapp:hover{
+        color: #25D366;
+    }
+
+    .fa-instagram:hover{
+      color:#E1306C;
+    }
+
+    
     @keyframes float{
         0%{
             transform: translateY(0);
@@ -118,3 +134,12 @@ hr {
             transform: translateY(0);
          }
     }
+
+
+/* copyright information */
+
+.copyright{
+  position: absolute;
+  bottom: 1.5%;
+  right:3%;
+}
