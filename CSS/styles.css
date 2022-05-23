@@ -131,7 +131,8 @@ hr {
     justify-content: center;
 }
 .menu-wrap .menu > div{
-    background-color: rgba(24,39,51,0.4);
+    backdrop-filter: blur(4px);
+    background-color: rgba(24, 39, 51, 0.44);
     border-radius: 50%;
     width: 200vw;
     height: 200vw;
@@ -189,7 +190,7 @@ hr {
     transform: translate(-50%,-50%);
     background: #2f3640b7;
     height: 60px;
-    width: 300px;
+    width: 430px;
     border-radius: 40px;
     padding: 10px;
     
