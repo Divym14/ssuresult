@@ -248,7 +248,10 @@ hr {
     }
 
     .fa-instagram:hover{
-      color:#E1306C;
+        background: radial-gradient(circle at 30% 107%, #fff58b 0%, #fff583 5%, #ff4736 45%, #db1a9d 60%, #1c50ee 90%);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text
     }
 
 
