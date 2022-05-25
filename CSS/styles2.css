@@ -236,13 +236,13 @@ body.dark .sidebar li a:hover .text{
 .mode .sun-moon i{
     position: absolute;
 }
-.mode .sun-moon i.sun{
+.mode .sun-moon i.moon{
     opacity: 0;
 }
-body.dark .mode .sun-moon i.sun{
+body.dark .mode .sun-moon i.moon{
     opacity: 1;
 }
-body.dark .mode .sun-moon i.moon{
+body.dark .mode .sun-moon i.sun{
     opacity: 0;
 }
 

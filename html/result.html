@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+  <!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!----======== CSS ======== -->
-    <link rel="stylesheet" href="../CSS/styles2.css">
+    <link rel="stylesheet" href="styles2.css">
     
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
@@ -19,7 +20,7 @@
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="../images/icons8-test-account-80.png" alt="">
+                    <img src="/images/icons8-test-account-80.png" alt="">
                 </span>
 
                 <div class="text logo-text">
@@ -32,7 +33,7 @@
         </header>
 
         <div class="menu-bar">
-            <div class="menu">
+            <div class="menu" >
 
                 <li class="search-box">
                     <i class='bx bx-search icon'></i>
@@ -41,19 +42,19 @@
 
                 <ul class="menu-links">
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="#" id="result" >
                             <i class="uil uil-medal icon"></i>
-                            <span class="text nav-text">Result</span>
+                            <span class="text nav-text" >Result</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="#" id="analytics" >
                             <i class='bx bx-pie-chart-alt icon' ></i>
                             <span class="text nav-text">Analytics</span>
                         </a>
                     </li>
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="#" id="rankings">
                             <i class="uil uil-trophy icon"></i>
                             <span class="text nav-text">Rankings</span>
                         </a>
@@ -67,7 +68,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="../index.html">
+                    <a href="/index.html">
                         <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text">Back to home</span>
                     </a>
@@ -75,10 +76,11 @@
 
                 <li class="mode">
                     <div class="sun-moon">
-                        <i class='bx bx-moon icon moon'></i>
                         <i class='bx bx-sun icon sun'></i>
+                        <i class='bx bx-moon icon moon'></i>
+                        
                     </div>
-                    <span class="mode-text text">Dark mode</span>
+                    <span class="mode-text text">Light mode</span>
 
                     <div class="toggle-switch">
                         <span class="switch"></span>
@@ -91,7 +93,9 @@
     </nav>
 
     <section class="home">
-        <div class="text">Dashboard Sidebar</div>
+        <div class="text" id="resultdef">Result</div>
+        <div class="text" id="analyticsdef" style="display: none;">Analytics</div>
+        <div class="text" id="rankingsdef" style="display: none;">Rankings</div>
     </section>
 
     <script>
@@ -115,12 +119,27 @@
             body.classList.toggle("dark");
             
             if(body.classList.contains("dark")){
-                modeText.innerText = "Light mode";
-            }else{
                 modeText.innerText = "Dark mode";
+            }else{
+                modeText.innerText = "Light mode";
                 
             }
-        });
+        }); 
+        document.getElementById("result").onclick=function(){
+            document.getElementById("analyticsdef").style.display="none";
+            document.getElementById("rankingsdef").style.display="none";
+            document.getElementById("resultdef").style.display="block";
+        }
+        document.getElementById("analytics").onclick=function(){
+            document.getElementById("resultdef").style.display="none";
+            document.getElementById("rankingsdef").style.display="none";
+            document.getElementById("analyticsdef").style.display="block";
+        }
+        document.getElementById("rankings").onclick=function(){
+            document.getElementById("resultdef").style.display="none";
+            document.getElementById("analyticsdef").style.display="none";
+            document.getElementById("rankingsdef").style.display="block";
+        }
     </script>
 
 </body>
