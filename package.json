@@ -1,0 +1,19 @@
+{
+  "name": "ssuresult",
+  "version": "1.0.0",
+  "description": "Website to display results of students , basically a srms.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Divym14/ssuresult.git"
+  },
+  "author": "Divyanshu Mohapatra, Divya Sonthalia , Aditya Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Divym14/ssuresult/issues"
+  },
+  "homepage": "https://github.com/Divym14/ssuresult#readme"
+}
