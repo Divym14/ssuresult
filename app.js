@@ -2,19 +2,20 @@ const express = require("express");
 const app = express();
 const ejs = require("ejs");
 const mysql = require("mysql2");
+const bodyParser = require("body-parser");
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-
+app.use(bodyParser.urlencoded({extended:true}));
 
 app.get("/", function(req,res){
   res.render("index")
 });
 
 app.post("/result",function(req,res){
-
+  let rollNumber = req.body.searchTxt;
   connection.query(
-    'SELECT * FROM (Students INNER JOIN results ON Students.id = Results.student_id) INNER JOIN courses ON courses.id = results.course_id WHERE regd_no = "FOS-BDS-2020-23-017"',
+    'SELECT * FROM (Students INNER JOIN results ON Students.id = Results.student_id) INNER JOIN courses ON courses.id = results.course_id WHERE regd_no ="'+rollNumber+'"',
     function(err, results, fields) {
       if(err){
         console.log(err);
