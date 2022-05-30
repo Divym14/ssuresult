@@ -101,8 +101,18 @@
               <td>Internal</td>
               <td>End Sem</td>
               <td>Total</td>
-              
             </tr>
+
+            <%results.forEach(function(result){%>
+              <tr>
+                <td><%=result.name%></td>
+                <td><%=result.credit_point%></td>
+                <td><%=result.internal%></td>
+                <td><%=result.end_sem%></td>
+                <td><%=(result.internal + result.end_sem)%></td>
+              </tr>
+            <%});%>
+
           </table>
         </div>
         <div class="text" id="analyticsdef" style="display: none;">Analytics</div>
