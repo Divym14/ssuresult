@@ -53,7 +53,7 @@ body.dark{
     padding: 10px 14px;
     background: var(--sidebar-color);
     transition: var(--tran-05);
-    z-index: 100;  
+    z-index: 100;
 }
 .sidebar.close{
     width: 88px;
@@ -103,7 +103,7 @@ body.dark{
 
 .sidebar header{
     position: relative;
-    
+
 }
 .sidebar header .image-text{
     display: flex;
@@ -187,12 +187,12 @@ body.dark .sidebar header .toggle{
 }
 .sidebar li a{
     list-style: none;
-    
+
     height: 100%;
     background-color: transparent;
     display: flex;
     align-items: center;
-    
+
     width: 100%;
     border-radius: 6px;
     text-decoration: none;
@@ -308,4 +308,9 @@ body.dark .switch::before{
 }
 body.dark .home .text{
     color: var(--text-color);
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
 }

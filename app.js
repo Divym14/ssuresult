@@ -11,6 +11,19 @@ app.get("/", function(req,res){
   res.render("index")
 });
 
+app.post("/result",function(req,res){
+
+  connection.query(
+    'SELECT * FROM (Students INNER JOIN results ON Students.id = Results.student_id) INNER JOIN courses ON courses.id = results.course_id WHERE regd_no = "FOS-BDS-2020-23-017"',
+    function(err, results, fields) {
+      if(err){
+        console.log(err);
+      }
+      console.log(results); // results contains rows returned by server
+      res.render("result",{results:results});
+    }
+  );
+});
 // create the connection to database
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -20,16 +33,7 @@ const connection = mysql.createConnection({
 });
 
 // simple query
-connection.query(
-  'SELECT results.internal, results.end_sem FROM (Students INNER JOIN results ON Students.id = Results.student_id) INNER JOIN courses ON courses.id = results.course_id WHERE regd_no = "FOS-BDS-2020-23-017"',
-  function(err, results, fields) {
-    if(err){
-      console.log(err);
-    }
-    console.log(results); // results contains rows returned by server
-    console.log(fields); // fields contains extra meta data about results, if available
-  }
-);
+
 
 
 
