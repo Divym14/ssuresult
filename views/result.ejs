@@ -35,10 +35,13 @@
         <div class="menu-bar">
             <div class="menu" >
 
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Roll No.">
-                </li>
+                <form  action="/result" method="post">
+                  <li class="search-box">
+                      <i class='bx bx-search icon'></i>
+                      <input name="searchTxt" type="text" placeholder="Roll No." onchange="this.form.submit()">
+                  </li>
+                </form>
+
 
                 <ul class="menu-links">
                     <li class="nav-link">
@@ -68,7 +71,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="../index.html">
+                    <a href="/">
                         <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text">Back to home</span>
                     </a>
@@ -95,7 +98,7 @@
     <section class="home">
         <div class="text" id="resultdef">Results<hr>
           <table class="studentinfo" width="873" border="0">
-          <tr> 
+          <tr>
           <td width="183"><span class="headingcolor">Name:</span>&nbsp&nbsp<%=(results[0].first_name)%>&nbsp<%=(results[0].last_name)%></td>
           <td width="160"><span class="headingcolor">Program:</span>&nbsp&nbsp<%=results[0].dept%></td>
           </tr>
@@ -103,7 +106,7 @@
           <td><span class="headingcolor">Regd.No.:</span>&nbsp&nbsp<%= results[0].regd_no%></td>
           <td><span class="headingcolor">Batch:</span>&nbsp&nbsp<%=results[0].batch%></td>
           </tr>
-          </table> 
+          </table>
           <table class="roundedCorners" width="873">
             <tr>
               <td><span class="headingcolor">Course Name</span></td>

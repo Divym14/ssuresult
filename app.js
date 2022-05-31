@@ -20,7 +20,7 @@ app.post("/result",function(req,res){
       if(err){
         console.log(err);
       }
-      console.log(results); // results contains rows returned by server
+      // console.log(results); // results contains rows returned by server
       res.render("result",{results:results});
     }
   );
