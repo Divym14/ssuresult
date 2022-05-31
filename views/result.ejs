@@ -38,7 +38,7 @@
                 <form  action="/result" method="post">
                   <li class="search-box">
                       <i class='bx bx-search icon'></i>
-                      <input name="searchTxt" type="text" placeholder="Roll No." onchange="this.form.submit()" autocomplete="off">
+                      <input name="searchTxt" type="text" placeholder="Roll No." onchange="this.form.submit()" autocomplete="off" id="rollNo">
                   </li>
                 </form>
 
@@ -47,7 +47,7 @@
                     <li class="nav-link">
                         <a href="#" id="result" >
                             <i class="uil uil-medal icon"></i>
-                            <span class="text nav-text" >Result</span>
+                            <span class="text nav-text " >Result</span>
                         </a>
                     </li>
                     <li class="nav-link">
@@ -96,7 +96,7 @@
     </nav>
 
     <section class="home">
-        <div class="text" id="resultdef">Results<hr>
+        <div class="text" id="resultdef"><span class="headingcolor">Results<hr></span>
           <table class="studentinfo" width="873" border="0">
           <tr>
           <td width="183"><span class="headingcolor">Name:</span>&nbsp&nbsp<%=(results[0].first_name)%>&nbsp<%=(results[0].last_name)%></td>
@@ -133,6 +133,18 @@
     </section>
 
     <script>
+        // search bar
+        var rollNo = document.querySelector('#rollNo');
+
+        rollNo.addEventListener('keyup', function(e) {
+        if (event.key != 'Backspace' && (rollNo.value.length === 3 || rollNo.value.length === 7 ||
+            rollNo.value.length === 12 || rollNo.value.length === 15))
+        {
+            rollNo.value += '-';
+        }
+        });
+
+        // toggler
         const body = document.querySelector('body'),
         sidebar = body.querySelector('nav'),
         toggle = body.querySelector(".toggle"),
@@ -140,7 +152,7 @@
         modeSwitch = body.querySelector(".toggle-switch"),
         modeText = body.querySelector(".mode-text");
 
-
+        // dark mode
         toggle.addEventListener("click" , () =>{
         sidebar.classList.toggle("close");
         })
@@ -159,6 +171,8 @@
 
             }
         });
+
+        // navigation of menu in sidebar 
         document.getElementById("result").onclick=function(){
             document.getElementById("analyticsdef").style.display="none";
             document.getElementById("rankingsdef").style.display="none";
@@ -174,6 +188,7 @@
             document.getElementById("analyticsdef").style.display="none";
             document.getElementById("rankingsdef").style.display="block";
         }
+        
     </script>
 
 </body>

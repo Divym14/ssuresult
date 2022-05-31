@@ -313,7 +313,7 @@ hr{
     border: 0;
     height: 5px;
     width: 150px;
-    background-color: var(--text-color);
+    background-color: DarkOrange;
 }
 /* tables */
 
@@ -365,4 +365,7 @@ body.dark .studentinfo{
 }
 body.dark .headingcolor{
     color: #695CFE;
+}
+body.dark hr{
+    background-color: #695CFE;
 }
