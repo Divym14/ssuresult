@@ -93,20 +93,24 @@
     </nav>
 
     <section class="home">
-        <div class="text" id="resultdef">Result
-
-          <p>Name:<%=(results[0].first_name)%>&nbsp<%=(results[0].last_name)%></p>
-          <p>Program: <%=results[0].dept%></p>
-          <p>Regd. No.:<%= results[0].regd_no%></p>
-          <p>Batch: <%=results[0].batch%></p>
-
-          <table>
+        <div class="text" id="resultdef">Results<hr>
+          <table class="studentinfo" width="873" border="0">
+          <tr> 
+          <td width="183"><span class="headingcolor">Name:</span>&nbsp&nbsp<%=(results[0].first_name)%>&nbsp<%=(results[0].last_name)%></td>
+          <td width="160"><span class="headingcolor">Program:</span>&nbsp&nbsp<%=results[0].dept%></td>
+          </tr>
+          <tr>
+          <td><span class="headingcolor">Regd.No.:</span>&nbsp&nbsp<%= results[0].regd_no%></td>
+          <td><span class="headingcolor">Batch:</span>&nbsp&nbsp<%=results[0].batch%></td>
+          </tr>
+          </table> 
+          <table class="roundedCorners" width="873">
             <tr>
-              <td>Course Name</td>
-              <td>Credit Point</td>
-              <td>Internal</td>
-              <td>End Sem</td>
-              <td>Total</td>
+              <td><span class="headingcolor">Course Name</span></td>
+              <td><span class="headingcolor">Credit Point</span></td>
+              <td><span class="headingcolor">Internal</span></td>
+              <td><span class="headingcolor">End Sem</span></td>
+              <td><span class="headingcolor">Total</span></td>
             </tr>
 
             <%results.forEach(function(result){%>
