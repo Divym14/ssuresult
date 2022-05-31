@@ -115,7 +115,7 @@ body.dark{
 }
 header .image-text .name {
     margin-top: 2px;
-    font-size: 18px;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
@@ -317,20 +317,20 @@ hr{
 }
 /* tables */
 
-table.roundedCorners { 
+table.roundedCorners {
     margin-left: 50px;
     margin-top: 30px;
     color: var(--text-color1);
     text-align: center;
     font-size: 20px;
     border: 1px solid #695CFE;
-    border-radius: 13px; 
+    border-radius: 13px;
     border-spacing: 0;
     }
-  table.roundedCorners td, 
-  table.roundedCorners th { 
+  table.roundedCorners td,
+  table.roundedCorners th {
     border-bottom: 1px solid rgb(75, 117, 255);
-    padding: 10px; 
+    padding: 10px;
     }
   table.roundedCorners tr:last-child > td {
     border-bottom: none;
@@ -339,7 +339,7 @@ table.roundedCorners {
     border: 1px solid DarkOrange;
     color: white;
   }
-  body.dark table.roundedCorners td, 
+  body.dark table.roundedCorners td,
   table.roundedCorners th{
     border-bottom: 1px solid DarkOrange;
     padding: 10px;

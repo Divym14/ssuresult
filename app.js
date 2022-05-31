@@ -12,7 +12,7 @@ app.get("/", function(req,res){
   res.render("index")
 });
 
-const greetingsArray = ["Hello","Welcome", "Howdy", "Hola", "Yo!", "Hi!!!", "Hey!!!"];
+const greetingsArray = ["Hello","Welcome", "Howdy", "Hola", "Yo!", "नमस्ते!!", "Hey!!!", "Bonjour"];
 
 app.post("/result",function(req,res){
   let rollNumber = req.body.searchTxt;
