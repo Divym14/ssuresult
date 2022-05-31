@@ -24,7 +24,7 @@
                 </span>
 
                 <div class="text logo-text">
-                    <span class="name">Welcome</span>
+                    <span class="name" style="color:#F806CC;"><%=greetings%></span>
                     <span class="student"><%=results[0].first_name%></span>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                 <form  action="/result" method="post">
                   <li class="search-box">
                       <i class='bx bx-search icon'></i>
-                      <input name="searchTxt" type="text" placeholder="Roll No." onchange="this.form.submit()">
+                      <input name="searchTxt" type="text" placeholder="Roll No." onchange="this.form.submit()" autocomplete="off">
                   </li>
                 </form>
 
