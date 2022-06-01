@@ -11,7 +11,7 @@
     /* ===== Colors ===== */
     --body-color: #E4E9F7;
     --sidebar-color: #FFF;
-    --primary-color: #695CFE;
+    --primary-color: #7c70ff;
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
     --text-color: #707070;
@@ -313,7 +313,7 @@ hr{
     border: 0;
     height: 5px;
     width: 150px;
-    background-color: DarkOrange;
+    background-color: #1749ff;
 }
 /* tables */
 
@@ -367,5 +367,24 @@ body.dark .headingcolor{
     color: #695CFE;
 }
 body.dark hr{
-    background-color: #695CFE;
+    background-color: DarkOrange;
+}
+.resultscolor{
+    color: #1749ff;
+}
+body.dark .resultscolor{
+    color: darkorange;
+}
+.semester{
+    position: absolute;
+    margin-left: 820px;
+    margin-right: auto;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: transparent;
+    color: black;
+    /* font-weight: bold; */
+}
+body.dark .semester{
+    color: white;
 }

@@ -47,7 +47,7 @@
                     <li class="nav-link">
                         <a href="#" id="result" >
                             <i class="uil uil-medal icon"></i>
-                            <span class="text nav-text " >Result</span>
+                            <span class="text nav-text " >Results</span>
                         </a>
                     </li>
                     <li class="nav-link">
@@ -96,17 +96,27 @@
     </nav>
 
     <section class="home">
-        <div class="text" id="resultdef"><span class="headingcolor">Results<hr></span>
-          <table class="studentinfo" width="873" border="0">
+        <div class="text" id="resultdef" ><span class="resultscolor">Results<hr></span>
+         
+          <table class="studentinfo" width="870" border="0">
           <tr>
           <td width="183"><span class="headingcolor">Name:</span>&nbsp&nbsp<%=(results[0].first_name)%>&nbsp<%=(results[0].last_name)%></td>
-          <td width="160"><span class="headingcolor">Program:</span>&nbsp&nbsp<%=results[0].dept%></td>
+          <td width="70"><span class="headingcolor">Program:</span>&nbsp&nbsp<%=results[0].dept%></td>
           </tr>
           <tr>
           <td><span class="headingcolor">Regd.No.:</span>&nbsp&nbsp<%= results[0].regd_no%></td>
           <td><span class="headingcolor">Batch:</span>&nbsp&nbsp<%=results[0].batch%></td>
           </tr>
           </table>
+          <!-- dropdown menu  -->
+          <div class="dropdown-menu">
+            <form>
+                <select name="semester" class="semester">
+                    <option value="semester1">Semester 1</option>
+                    <option value="semester2">Semester 2</option>
+                </select>
+            </form>
+        </div> 
           <table class="roundedCorners" width="873">
             <tr>
               <td><span class="headingcolor">Course Name</span></td>
@@ -188,7 +198,7 @@
             document.getElementById("analyticsdef").style.display="none";
             document.getElementById("rankingsdef").style.display="block";
         }
-        
+
     </script>
 
 </body>

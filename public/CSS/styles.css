@@ -170,6 +170,7 @@ hr {
 
 /* search bar */
 .search-btn{
+    border: 0;
     color: #e84118;
     float: right;
     width: 40px;
@@ -181,6 +182,9 @@ hr {
     align-items: center;
     transition: 0.4s;
     text-decoration: none;
+}
+.search-btn:hover{
+    color: #1c50ee;
 }
 .search-bar{
                 
@@ -211,7 +215,9 @@ hr {
     color: #ffffff;
     opacity: 0.5;
 }
-    footer {
+
+/* footer styling */
+footer {
         position: fixed;
         bottom: 0;
         width: 100%;
