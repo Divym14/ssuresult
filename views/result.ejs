@@ -109,6 +109,8 @@
           </tr>
           </table>
           <!-- dropdown menu  -->
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
           <div class="dropdown-menu">
             <form action="/result" method="post">
                 <select name="semester" class="semester" onchange="this.form.submit()">
@@ -117,22 +119,37 @@
                 </select>
             </form>
         </div>
+
+        <script>
+          $("select option[value='"+<%=semNumber%>+"']").attr("selected","true");
+        </script>
           <table class="roundedCorners" width="873">
             <tr>
+              <td><span class="headingcolor">Course Code</span></td>
               <td><span class="headingcolor">Course Name</span></td>
               <td><span class="headingcolor">Credit Point</span></td>
-              <td><span class="headingcolor">Internal</span></td>
-              <td><span class="headingcolor">End Sem</span></td>
-              <td><span class="headingcolor">Total</span></td>
+              <td><span class="headingcolor">Internal Evaluation</span></td>
+              <td><span class="headingcolor">End Sem Evaluation</span></td>
+              <td><span class="headingcolor">Total Marks</span></td>
+              <td><span class="headingcolor">Grades</span></td>
+              <td><span class="headingcolor">Grade Points</span></td>
             </tr>
 
             <%results.forEach(function(result){%>
               <tr>
+                <%if(result.dept_id===1){%>
+                  <td><%="BDS"+(result.course_code)%></td>
+              <%  }else{ %>
+                  <td><%="BCS"+(result.course_code)%></td>
+              <%  }%>
+
                 <td><%=result.name%></td>
                 <td><%=result.credit_point%></td>
                 <td><%=result.internal%></td>
                 <td><%=result.end_sem%></td>
                 <td><%=(result.internal + result.end_sem)%></td>
+                <td><%=result.grades%></td>
+                <td><%=(result.internal + result.end_sem)/10%></td>
               </tr>
             <%});%>
 
@@ -143,8 +160,10 @@
     </section>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
     <script >
+
         // search bar
         var rollNo = document.querySelector('#rollNo');
 
@@ -200,6 +219,10 @@
             document.getElementById("analyticsdef").style.display="none";
             document.getElementById("rankingsdef").style.display="block";
         }
+
+
+
+
 
 
     </script>

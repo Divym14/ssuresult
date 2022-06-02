@@ -4,6 +4,7 @@ const ejs = require("ejs");
 const mysql = require("mysql2");
 const bodyParser = require("body-parser");
 
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
@@ -38,7 +39,7 @@ app.post("/result",function(req,res){
 
   if(Number.isInteger(parseInt(req.body.semester))){
     semNumber = req.body.semester;
-    
+
   }
   else{
     semNumber = 1;
@@ -62,10 +63,11 @@ app.post("/result",function(req,res){
       else{
         searchResult = results;
       }
-     // console.log(searchResult[0].first_name); // results contains rows returned by server
+     console.log(semNumber);
       res.render("result",{
         results:searchResult,
-        greetings:greetings});
+        greetings:greetings,
+        semNumber:semNumber});
     });
 
 
