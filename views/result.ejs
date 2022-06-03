@@ -98,9 +98,9 @@
     <section class="home">
         <div class="text" id="resultdef" ><span class="resultscolor">Results<hr></span>
 
-          <table class="studentinfo" width="870" border="0">
+          <table class="studentinfo" width="1380" border="0">
           <tr>
-          <td width="183"><span class="headingcolor">Name:</span>&nbsp&nbsp<%=(results[0].first_name)%>&nbsp<%=(results[0].last_name)%></td>
+          <td width="140"><span class="headingcolor">Name:</span>&nbsp&nbsp<%=(results[0].first_name)%>&nbsp<%=(results[0].last_name)%></td>
           <td width="70"><span class="headingcolor">Program:</span>&nbsp&nbsp<%=results[0].dept_name%></td>
           </tr>
           <tr>
@@ -123,13 +123,13 @@
         <script>
           $("select option[value='"+<%=semNumber%>+"']").attr("selected","true");
         </script>
-          <table class="roundedCorners" width="873">
+          <table class="roundedCorners" id="table1" width="873">
             <tr>
               <td><span class="headingcolor">Course Code</span></td>
               <td><span class="headingcolor">Course Name</span></td>
               <td><span class="headingcolor">Credit Point</span></td>
-              <td><span class="headingcolor">Internal Evaluation</span></td>
-              <td><span class="headingcolor">End Sem Evaluation</span></td>
+              <td><span class="headingcolor">Internal</span></td>
+              <td><span class="headingcolor">End Sem </span></td>
               <td><span class="headingcolor">Total Marks</span></td>
               <td><span class="headingcolor">Grades</span></td>
               <td><span class="headingcolor">Grade Points</span></td>
@@ -155,20 +155,21 @@
 
           </table>
 
-          <p><%=resultStatus[0].status%></p>
+          
 
-          <table class="roundedCorners">
+          <table class="roundedCorners" id="table2">
             <tr>
-              <td>SGPA</td>
-              <td>CGPA</td>
+              <td class="gpa">SGPA</td>
+              <td class="gpa">CGPA</td>
             </tr>
             <tr>
-              <td><%=resultStatus[0].sgpa%></td>
-              <td><%=resultStatus[0].cgpa%></td>
+              <td ><%=resultStatus[0].sgpa%></td>
+              <td ><%=resultStatus[0].cgpa%></td>
             </tr>
           </table>
-
+          <p id="status"><span id="statuscolor"> Result status:</span>&nbsp;<%=resultStatus[0].status%></p>
         </div>
+        
         <div class="text" id="analyticsdef" style="display: none;">Analytics</div>
         <div class="text" id="rankingsdef" style="display: none;">Rankings</div>
     </section>

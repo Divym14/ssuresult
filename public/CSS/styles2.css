@@ -318,38 +318,56 @@ hr{
 /* tables */
 
 table.roundedCorners {
-    margin-left: 50px;
+    
+    width: 80%;
+    margin-left: 30px;
     margin-top: 30px;
     color: var(--text-color1);
     text-align: center;
     font-size: 20px;
-    border: 1px solid #695CFE;
+    border: 2px solid #695CFE;
     border-radius: 13px;
     border-spacing: 0;
     }
   table.roundedCorners td,
   table.roundedCorners th {
-    border-bottom: 1px solid rgb(75, 117, 255);
-    padding: 10px;
+    border-bottom: 2px solid rgb(75, 117, 255);
+    padding: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100px;
+    height: 40px;
     }
   table.roundedCorners tr:last-child > td {
     border-bottom: none;
   }
   body.dark table.roundedCorners{
-    border: 1px solid DarkOrange;
+    border: 2px solid DarkOrange;
     color: white;
   }
   body.dark table.roundedCorners td,
   table.roundedCorners th{
-    border-bottom: 1px solid DarkOrange;
-    padding: 10px;
+    border-bottom: 2px solid DarkOrange;
+    padding: 4px;
   }
   body.dark table.roundedCorners tr:last-child > td{
     border-bottom: none;
   }
+  #table1{
+      float: left;
+  }
+  #table2{
+      margin-top:30px;
+      padding: 0;
+      float:right;
+      margin-right: 5px;
+      width: 50px;
+      
+  }
 /* student info */
 .studentinfo{
-    margin-left: 50px;
+    
+    margin-left: 30px;
     color: var(--text-color1);
     margin-top: 60px;
     /* margin-left: auto;
@@ -377,14 +395,38 @@ body.dark .resultscolor{
 }
 .semester{
     position: absolute;
-    margin-left: 820px;
+    margin-left: 1040px;
     margin-right: auto;
-    border: 1px solid;
+    border: 1.5px solid;
     border-radius: 5px;
     background-color: transparent;
-    color: black;
+    color: var(--text-color1);
     /* font-weight: bold; */
 }
 body.dark .semester{
     color: white;
+}
+ body.dark select option{
+       color: #18191a;
+}
+#status{
+    color: var(--text-color1);
+    font-size: 17px;
+    float: left;
+    width: 400px;
+    margin-left: 30px;
+    margin-top: 5px;
+}
+body.dark #status{
+    color: white;
+}
+ #statuscolor{
+    color: #a865b5;
+    font-weight: bold;
+}
+.gpa{
+    color:#c21807;
+}
+body.dark .gpa{
+    color: #ff0800;
 }
