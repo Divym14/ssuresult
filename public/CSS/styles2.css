@@ -355,11 +355,13 @@ table.roundedCorners {
   }
   #table1{
       float: left;
+     
   }
   #table2{
+      flex: 50%;
       margin-top:30px;
       padding: 0;
-      float:right;
+      float:left;
       margin-right: 5px;
       width: 50px;
       
@@ -395,7 +397,7 @@ body.dark .resultscolor{
 }
 .semester{
     position: absolute;
-    margin-left: 1040px;
+    margin-left: 580px;
     margin-right: auto;
     border: 1.5px solid;
     border-radius: 5px;
