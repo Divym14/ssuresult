@@ -18,14 +18,14 @@ const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password:'password',
-  database: 'ssu'
+  database: 'ssu',
+  multipleStatements: true
 });
 
 const greetingsArray = ["Hello","Welcome", "Howdy", "Hola", "Yo!", "नमस्ते!!", "Hey!!!", "Bonjour"];
 var rollNumber = "";
 var rollArray = [];
 var count = 0;
-
 app.post("/result",function(req,res){
 
   var semNumber = 1;
@@ -55,19 +55,25 @@ app.post("/result",function(req,res){
     'SELECT * FROM (students inner join Dept on students.Dept_id = Dept.id \
       inner join  results on students.id = results.student_id)\
      inner join courses on results.course_id = courses.id \
-    WHERE regd_no ="'+ rollNumber+'"'+"AND Results.sem_number="+semNumber,
+    WHERE regd_no ="'+ rollNumber+'"'+"AND Results.sem_number="+semNumber+';SELECT * FROM \
+    students inner join result_status on students.id = result_status.student_id \
+    WHERE regd_no ="'+ rollNumber+'"'+"AND result_status.sem_number="+semNumber,
+    [1,2],
     function(err, results, fields) {
       if(err){
         console.log(err);
       }
       else{
-        searchResult = results;
+        searchResult = results[0];
+        resultStatus = results[1];
       }
      console.log(semNumber);
+     console.log(resultStatus);
       res.render("result",{
         results:searchResult,
         greetings:greetings,
-        semNumber:semNumber});
+        semNumber:semNumber,
+        resultStatus:resultStatus});
     });
 
 
