@@ -14,8 +14,14 @@
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <!--<title>Dashboard Sidebar Menu</title>-->
+
 </head>
-<body>
+<body >
+  <script>
+    const mode = localStorage.getItem('mode') || 'home';
+    document.body.className = mode;
+  </script>
+
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -85,7 +91,7 @@
                     </div>
                     <span class="mode-text text">Light mode</span>
 
-                    <div class="toggle-switch">
+                    <div class="toggle-switch ">
                         <span class="switch"></span>
                     </div>
                 </li>
@@ -155,7 +161,7 @@
 
           </table>
 
-          
+
 
           <table class="roundedCorners" id="table2"  >
             <tr>
@@ -169,7 +175,7 @@
           </table>
           <p id="status"><span id="statuscolor"> Result Status:</span>&nbsp;<%=resultStatus[0].status%></p>
         </div>
-        
+
         <div class="text" id="analyticsdef" style="display: none;">Analytics</div>
         <div class="text" id="rankingsdef" style="display: none;">Rankings</div>
     </section>
@@ -178,6 +184,7 @@
 
 
     <script >
+
 
         // search bar
         var rollNo = document.querySelector('#rollNo');
@@ -207,14 +214,21 @@
             sidebar.classList.remove("close");
         })
 
+
+
+        if (localStorage.getItem("mode") === "dark") {
+          body.classList.add("dark");
+        }
         modeSwitch.addEventListener("click" , () =>{
+
             body.classList.toggle("dark");
 
             if(body.classList.contains("dark")){
                 modeText.innerText = "Dark mode";
+                localStorage.setItem("mode","dark");
             }else{
                 modeText.innerText = "Light mode";
-
+                localStorage.setItem("mode","light");
             }
         });
 
@@ -235,9 +249,25 @@
             document.getElementById("rankingsdef").style.display="block";
         }
 
+        function setCookie(cname,cvalue){
+          document.cookie = cname + "=" + cvalue + ";";
+        }
 
-
-
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+              let c = ca[i];
+              while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+              }
+              if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+              }
+            }
+            return "";
+          }
 
 
     </script>

@@ -306,6 +306,7 @@ body.dark .switch::before{
     height: 100vh;
     width: calc(100% - 78px);
 }
+
 body.dark .home .text{
     color: var(--text-color);
 }
@@ -318,7 +319,7 @@ hr{
 /* tables */
 
 table.roundedCorners {
-    
+
     width: 80%;
     margin-left: 30px;
     margin-top: 30px;
@@ -357,9 +358,9 @@ table.roundedCorners {
     border-bottom: none;
   }
   #table1{
-      float: left; 
+      float: left;
   }
-  
+
   #table2{
       margin-left: 5px;
       margin-top:30px;
@@ -376,7 +377,7 @@ table.roundedCorners {
   }
 /* student info */
 .studentinfo{
-    
+
     margin-left: 30px;
     color: var(--text-color1);
     margin-top: 60px;

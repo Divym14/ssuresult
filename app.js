@@ -26,6 +26,7 @@ const greetingsArray = ["Hello","Welcome", "Howdy", "Hola", "Yo!", "नमस्
 var rollNumber = "";
 var rollArray = [];
 var count = 0;
+
 app.post("/result",function(req,res){
 
   var semNumber = 1;
@@ -67,8 +68,7 @@ app.post("/result",function(req,res){
         searchResult = results[0];
         resultStatus = results[1];
       }
-     console.log(semNumber);
-     console.log(resultStatus);
+      
       res.render("result",{
         results:searchResult,
         greetings:greetings,
