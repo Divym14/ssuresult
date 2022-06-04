@@ -335,7 +335,7 @@ table.roundedCorners {
   table.roundedCorners td,
   table.roundedCorners th {
     border-bottom: 2px solid rgb(75, 117, 255);
-    padding: 0 5px;
+    padding: 2px;
     white-space: nowrap;
     overflow: hidden;
     width: 100px;
@@ -351,7 +351,7 @@ table.roundedCorners {
   body.dark table.roundedCorners td,
   table.roundedCorners th{
     border-bottom: 2px solid DarkOrange;
-    padding: 4px;
+    padding: 2px;
   }
   body.dark table.roundedCorners tr:last-child > td{
     border-bottom: none;
@@ -368,7 +368,7 @@ table.roundedCorners {
       width: 1px;
   }
   #table2 td,th{
-    padding: 4px;
+    padding: 2px;
     white-space: nowrap;
     overflow: hidden;
     width: 100px;
