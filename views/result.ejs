@@ -20,7 +20,9 @@
   <script>
     const mode = localStorage.getItem('mode') || 'home';
     document.body.className = mode;
+
   </script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <nav class="sidebar close">
         <header>
@@ -100,6 +102,12 @@
         </div>
 
     </nav>
+    <script >
+    const sideBar = localStorage.getItem('sideBar');
+    if (sideBar == "open") {
+      $("nav").removeClass("close");
+    }
+    </script>
 
     <section class="home">
         <div class="text" id="resultdef" ><span class="resultscolor">Results<hr></span>
@@ -208,6 +216,12 @@
         // dark mode
         toggle.addEventListener("click" , () =>{
         sidebar.classList.toggle("close");
+        if(sidebar.classList.contains("close")){
+            localStorage.setItem("sideBar","close");
+        }else{
+            localStorage.setItem("sideBar","open");
+        }
+
         })
 
         searchBtn.addEventListener("click" , () =>{
