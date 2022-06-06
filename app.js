@@ -68,7 +68,7 @@ app.post("/result",function(req,res){
         searchResult = results[0];
         resultStatus = results[1];
       }
-      
+
       res.render("result",{
         results:searchResult,
         greetings:greetings,
@@ -80,7 +80,37 @@ app.post("/result",function(req,res){
 });
 
 
+app.post("/rankings", function(req,res){
+  connection.query('SELECT CONCAT(first_name," ",last_name) as Name,cgpa,sgpa FROM Students \
+  inner join result_status on students.id = result_status.student_id WHERE \
+  result_status.sem_number='+1, //semNumber
+  function(err,results,fields){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.send(results);
+    }
 
+  });
+
+});
+
+// app.get("/result/rankings", function(req,res){
+//   connection.query('SELECT CONCAT(first_name," ",last_name) as Name,cgpa,sgpa FROM Students \
+//   inner join result_status on students.id = result_status.student_id WHERE \
+//   result_status.sem_number='+1, //semNumber
+//   function(err,results,fields){
+//     if(err){
+//       console.log(err);
+//     }
+//     else{
+//       res.send(results);
+//     }
+//
+//   });
+//
+// });
 
 // *********************** ALl FUNCTIONS BELOW *************************
 function getRandomItem(arr) {

@@ -1,0 +1,104 @@
+</section>
+
+
+
+
+<script >
+
+
+    // search bar
+    var rollNo = document.querySelector('#rollNo');
+
+    rollNo.addEventListener('keyup', function(e) {
+    if (event.key != 'Backspace' && (rollNo.value.length === 3 || rollNo.value.length === 7 ||
+        rollNo.value.length === 12 || rollNo.value.length === 15))
+    {
+        rollNo.value += '-';
+    }
+    });
+
+    // toggler
+    const body = document.querySelector('body'),
+    sidebar = body.querySelector('nav'),
+    toggle = body.querySelector(".toggle"),
+    searchBtn = body.querySelector(".search-box"),
+    modeSwitch = body.querySelector(".toggle-switch"),
+    modeText = body.querySelector(".mode-text");
+
+    // dark mode
+    toggle.addEventListener("click" , () =>{
+    sidebar.classList.toggle("close");
+    if(sidebar.classList.contains("close")){
+        localStorage.setItem("sideBar","close");
+    }else{
+        localStorage.setItem("sideBar","open");
+    }
+
+    })
+
+    searchBtn.addEventListener("click" , () =>{
+        sidebar.classList.remove("close");
+    })
+
+
+
+    if (localStorage.getItem("mode") === "dark") {
+      body.classList.add("dark");
+    }
+    modeSwitch.addEventListener("click" , () =>{
+
+        body.classList.toggle("dark");
+
+        if(body.classList.contains("dark")){
+            modeText.innerText = "Dark mode";
+            localStorage.setItem("mode","dark");
+        }else{
+            modeText.innerText = "Light mode";
+            localStorage.setItem("mode","light");
+        }
+    });
+
+    // navigation of menu in sidebar
+    document.getElementById("result").onclick=function(){
+        document.getElementById("analyticsdef").style.display="none";
+        document.getElementById("rankingsdef").style.display="none";
+        document.getElementById("resultdef").style.display="block";
+    }
+    document.getElementById("analytics").onclick=function(){
+        document.getElementById("resultdef").style.display="none";
+        document.getElementById("rankingsdef").style.display="none";
+        document.getElementById("analyticsdef").style.display="block";
+    }
+    document.getElementById("rankings").onclick=function(){
+        document.getElementById("resultdef").style.display="none";
+        document.getElementById("analyticsdef").style.display="none";
+        document.getElementById("rankingsdef").style.display="block";
+    }
+
+    function setCookie(cname,cvalue){
+      document.cookie = cname + "=" + cvalue + ";";
+    }
+
+    function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+
+</script>
+
+
+
+</body>
+</html>
