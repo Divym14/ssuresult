@@ -450,3 +450,69 @@ body.dark #status{
 body.dark .gpa{
     color: #ff0800;
 }
+/* <-----------ranking---------> */
+.rankingimg{
+    position: relative;
+    height: 90px;
+    width: 140px;
+    margin-top: 50px;
+    margin-bottom: 0;
+}
+.ranksemester{
+    position: relative;
+    top: -38px;
+    right: 2px;
+    padding: 0;
+    border: 1.5px solid;
+    border-radius: 5px;
+    background-color: transparent;
+    color: var(--text-color1);
+}
+.rankingtable{
+    position: relative;
+    top: -40px;
+    width: auto;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    /* border:solid 2px #1749ff ; */
+    border-top: solid 1.5px #1749ff ;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: solid 2px #1749ff ;
+    font-size: 18px;
+    border-spacing:0 ;
+}
+.rankingtable tbody{
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: 370px;
+    text-align: center;
+}
+.rankingtable tbody tr:hover {
+    
+    background-color: #b9b9b9;
+    
+}
+.rankingtable thead tr{
+    display: block;
+    
+}
+.rankingtable th, .rankingtable td {
+    padding: 5px;
+    width: 210px;
+  }
+
+table.rankingtable th{
+    border-bottom: solid 2px #1749ff;
+    width: 210px;
+}
+table.rankingtable td{
+    white-space: nowrap;
+    overflow: hidden;
+}
+/* table.rankingtable tbody td{
+    border-bottom: 2px solid gray;
+} */
