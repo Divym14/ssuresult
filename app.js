@@ -81,36 +81,25 @@ app.post("/result",function(req,res){
 
 
 app.post("/rankings", function(req,res){
-  connection.query('SELECT CONCAT(first_name," ",last_name) as Name,cgpa,sgpa FROM Students \
+  const rollNumber = rollArray[count-1];
+  const greetings = getRandomItem(greetingsArray);
+
+  connection.query('SELECT first_name FROM students WHERE regd_no="'+rollNumber+'"'+';SELECT CONCAT(first_name," ",last_name) as Name,cgpa,sgpa FROM Students \
   inner join result_status on students.id = result_status.student_id WHERE \
-  result_status.sem_number='+1, //semNumber
+  result_status.sem_number='+1,
+  [1,2], //semNumber
   function(err,results,fields){
     if(err){
       console.log(err);
     }
     else{
-      res.send(results);
+      res.render("rankings",{results:results[0],greetings:greetings});
     }
 
   });
 
 });
 
-// app.get("/result/rankings", function(req,res){
-//   connection.query('SELECT CONCAT(first_name," ",last_name) as Name,cgpa,sgpa FROM Students \
-//   inner join result_status on students.id = result_status.student_id WHERE \
-//   result_status.sem_number='+1, //semNumber
-//   function(err,results,fields){
-//     if(err){
-//       console.log(err);
-//     }
-//     else{
-//       res.send(results);
-//     }
-//
-//   });
-//
-// });
 
 // *********************** ALl FUNCTIONS BELOW *************************
 function getRandomItem(arr) {

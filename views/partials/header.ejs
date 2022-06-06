@@ -53,12 +53,15 @@
 
 
                 <ul class="menu-links">
+                  <form id="resultsForm" action="/result" method="post">
                     <li class="nav-link">
-                        <a href="#" id="result" >
+                        <a href="javascript:$('#resultsForm').submit();" id="result" >
                             <i class="uil uil-medal icon"></i>
                             <span class="text nav-text " >Results</span>
                         </a>
                     </li>
+                  </form>
+
                     <li class="nav-link">
                         <a href="#" id="analytics" >
                             <i class='bx bx-pie-chart-alt icon' ></i>
