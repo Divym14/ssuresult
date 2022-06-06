@@ -86,14 +86,17 @@ app.post("/rankings", function(req,res){
 
   connection.query('SELECT first_name FROM students WHERE regd_no="'+rollNumber+'"'+';SELECT CONCAT(first_name," ",last_name) as Name,cgpa,sgpa FROM Students \
   inner join result_status on students.id = result_status.student_id WHERE \
-  result_status.sem_number='+1,
+  result_status.sem_number= '+2+' ORDER BY '+'result_status.cgpa'+' desc',
   [1,2], //semNumber
   function(err,results,fields){
     if(err){
       console.log(err);
     }
     else{
-      res.render("rankings",{results:results[0],greetings:greetings});
+      res.render("rankings",
+      {rankings:results[1],
+       results:results[0],
+       greetings:greetings});
     }
 
   });
