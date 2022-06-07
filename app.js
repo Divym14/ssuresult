@@ -83,10 +83,32 @@ app.post("/result",function(req,res){
 app.post("/rankings", function(req,res){
   const rollNumber = rollArray[count-1];
   const greetings = getRandomItem(greetingsArray);
+  var semNumber = 1;
+  var gpa = "sgpa";
+
+  if(Number.isInteger(parseInt(req.body.semester))){
+    semNumber = req.body.semester;
+    if (semNumber==3) {
+      querySemNumber = 2;
+    }else{
+      querySemNumber = semNumber;
+    }
+  }
+  else{
+    semNumber = 1;
+    querySemNumber = semNumber;
+  }
+
+  if(semNumber == 1 || semNumber == 2){
+    gpa = "sgpa";
+  }else{
+    gpa = "cgpa";
+  }
+
 
   connection.query('SELECT first_name FROM students WHERE regd_no="'+rollNumber+'"'+';SELECT CONCAT(first_name," ",last_name) as Name,cgpa,sgpa FROM Students \
   inner join result_status on students.id = result_status.student_id WHERE \
-  result_status.sem_number= '+2+' ORDER BY '+'result_status.cgpa'+' desc',
+  result_status.sem_number= '+querySemNumber+' ORDER BY '+'result_status.'+gpa+' desc',
   [1,2], //semNumber
   function(err,results,fields){
     if(err){
@@ -96,7 +118,8 @@ app.post("/rankings", function(req,res){
       res.render("rankings",
       {rankings:results[1],
        results:results[0],
-       greetings:greetings});
+       greetings:greetings,
+       semNumber:semNumber});
     }
 
   });
