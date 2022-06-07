@@ -222,7 +222,7 @@ footer {
         bottom: 0;
         width: 100%;
         height: 60px;
-
+        margin-left: 4px;
     }
     a, a:hover{
         color: #15c1b6;
@@ -233,15 +233,16 @@ footer {
     }
     .icon{
     display: inline-block;
+    /* margin-left: 2px; */
     margin-top: 17px;
     font-size: 35px;
-    animation: float 5s ease-in-out infinite;
+    animation: float 4s ease-in-out infinite;
     }
     .fa-facebook{
-        animation-delay: 1.3s;
+        animation-delay: 0.9s;
     }
     .fa-whatsapp{
-        animation-delay: 2.3s;
+        animation-delay: 1.9s;
     }
 
     /* footer icons hover effects */
@@ -267,7 +268,7 @@ footer {
             transform: translateY(0);
         }
         50%{
-         transform: translateY(-15px);
+         transform: translateY(-18px);
         }
         100%{
             transform: translateY(0);

@@ -204,7 +204,6 @@ body.dark .sidebar header .toggle{
     text-decoration: none;
     transition: var(--tran-03);
 }
-
 .sidebar li a:hover{
     background-color: var(--primary-color);
 }
@@ -216,7 +215,6 @@ body.dark .sidebar li a:hover .icon,
 body.dark .sidebar li a:hover .text{
     color: var(--text-color);
 }
-
 .sidebar .menu-bar{
     height: calc(100% - 55px);
     display: flex;
