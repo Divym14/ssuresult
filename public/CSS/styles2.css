@@ -204,6 +204,20 @@ body.dark .sidebar header .toggle{
     text-decoration: none;
     transition: var(--tran-03);
 }
+/* .selectedtab .sidebar li a{
+    background-color: var(--primary-color); !important
+} */
+#selectedtab{
+    background-color:var(--primary-color); 
+}
+#selectedtab .icon,
+#selectedtab .text{
+    color: var(--sidebar-color);
+}
+body.dark #selectedtab .icon,
+body.dark #selectedtab .text{
+    color: var(--text-color);
+}
 .sidebar li a:hover{
     background-color: var(--primary-color);
 }
@@ -215,6 +229,7 @@ body.dark .sidebar li a:hover .icon,
 body.dark .sidebar li a:hover .text{
     color: var(--text-color);
 }
+
 .sidebar .menu-bar{
     height: calc(100% - 55px);
     display: flex;
@@ -316,6 +331,7 @@ body.dark .switch::before{
 body.dark .home .text{
     color: var(--text-color);
 }
+
 hr{
     border: 0;
     height: 5px;
