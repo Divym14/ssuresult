@@ -324,6 +324,15 @@ hr{
     width: 150px;
     background-color: #1749ff;
 }
+#rankingsdef hr{
+    border: 0;
+    height: 5px;
+    width: 200px;
+    background-color: #1749ff;
+}
+body.dark #rankingsdef hr{
+    background-color: darkorange;
+}
 /* tables */
 
 table.roundedCorners {
@@ -452,37 +461,53 @@ body.dark .gpa{
 }
 /* <-----------ranking---------> */
 .rankingimg{
-    position: relative;
-    height: 90px;
-    width: 140px;
-    margin-top: 50px;
-    margin-bottom: 0;
+    /* position: relative; */
+    height: 177px;
+    width: 177px;
+    margin-top: -7px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
-.ranksemester{
-    position: relative;
-    top: -38px;
-    right: 2px;
+.ranksemester{ 
+    margin-top: -18px; 
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0;
     border: 1.5px solid;
     border-radius: 5px;
     background-color: transparent;
     color: var(--text-color1);
 }
+body.dark .ranksemester{
+    color: white;
+}
+ body.dark .ranksemester select option{
+       color: #18191a;
+}
 .rankingtable{
     position: relative;
-    top: -40px;
-    width: auto;
+    /* top: -40px; */ 
+    
+    width: 520px;
     table-layout: fixed;
-    border-collapse: collapse;
+    /* border-collapse: collapse; */
     margin-left: auto;
     margin-right: auto;
-    /* border:solid 2px #1749ff ; */
-    border-top: solid 1.5px #1749ff ;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: solid 2px #1749ff ;
+    border:solid 2px #1749ff ;
+    /* border-top: solid 2px #1749ff ; */
+    /* border-left: 0;
+    border-right: 0; */
+    /* border-bottom: solid 2px #1749ff ; */
     font-size: 18px;
     border-spacing:0 ;
+    border-radius: 13px;
+    
+}
+body.dark .rankingtable{
+    border: solid 2px darkorange;
 }
 .rankingtable tbody{
     display: block;
@@ -492,27 +517,71 @@ body.dark .gpa{
     text-align: center;
 }
 .rankingtable tbody tr:hover {
-    
+    cursor:default;
     background-color: #b9b9b9;
+}
+body.dark .rankingtable tbody tr:hover {
+    color: black;
+    background-color: #ececec;
     
 }
 .rankingtable thead tr{
     display: block;
+    border-bottom: solid 2px #1749ff;
     
+}
+body.dark .rankingtable thead tr{
+    border-bottom:solid 2px darkorange; 
 }
 .rankingtable th, .rankingtable td {
     padding: 5px;
-    width: 210px;
-  }
-
-table.rankingtable th{
-    border-bottom: solid 2px #1749ff;
-    width: 210px;
+    width: 240px;
+    
 }
 table.rankingtable td{
     white-space: nowrap;
     overflow: hidden;
 }
-/* table.rankingtable tbody td{
-    border-bottom: 2px solid gray;
+/* .rankingtable tbody tr {
+    
+    background-color: #b3ff31;
+    
 } */
+
+
+::-webkit-scrollbar {
+    background-color:transparent;
+    width:16px
+    
+}
+
+/* background of the scrollbar except button or resizer */
+::-webkit-scrollbar-track {
+    background-color:transparent;
+}
+::-webkit-scrollbar-track:hover {
+    background-color:transparent;
+}
+
+/* scrollbar itself */
+::-webkit-scrollbar-thumb {
+    background-color:#babac0;
+    border-radius:16px;
+    border:5px solid #E4E9F7;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color:#a0a0a5;
+    border:4px solid #E4E9F7
+}
+
+/* set button(top and bottom of the scrollbar) */
+::-webkit-scrollbar-button {display:none}
+body.dark ::-webkit-scrollbar-thumb {
+    background-color:#babac0;
+    border-radius:16px;
+    border:5px solid #18191a;
+}
+body.dark ::-webkit-scrollbar-thumb:hover {
+    background-color:#a0a0a5;
+    border:4px solid #18191a
+}
