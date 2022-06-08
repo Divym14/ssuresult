@@ -14,8 +14,12 @@
 <body >
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
-    const mode = localStorage.getItem('mode') || 'home';
-    document.body.className = mode;
+    const mode = localStorage.getItem('mode');
+    if(mode!="dark"){
+      document.body.classList.remove("dark");
+    }else{
+      document.body.classList.add("dark");
+    }
   </script>
 
 
@@ -101,6 +105,10 @@
 
     </nav>
     <script >
+    const sideBar = localStorage.getItem('sideBar');
+    if (sideBar == "open") {
+      $("nav").removeClass("close");
+    }
     var arrID = ["1","2","3"];
     idClicked = localStorage.getItem("selectedtab");
     console.log(arrID.includes(idClicked));
