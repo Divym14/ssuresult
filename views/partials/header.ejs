@@ -5,23 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!----======== CSS ======== -->
-    <link rel="stylesheet" href="../CSS/styles2.css">
-
-    <!----===== Boxicons CSS ===== -->
+   <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-
-    <!--<title>Dashboard Sidebar Menu</title>-->
-
+  <!----======== CSS ======== -->
+    <link rel="stylesheet" href="../CSS/styles2.css">
 </head>
 <body >
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script>
     const mode = localStorage.getItem('mode') || 'home';
     document.body.className = mode;
-
   </script>
 
 
@@ -54,7 +48,7 @@
 
                 <ul class="menu-links">
                   <form id="resultsForm" action="/result" method="post" >
-                    <li class="nav-link" >
+                    <li id="1" onClick="reply_click(this.id)" class="nav-link" >
                         <a href="javascript:$('#resultsForm').submit();">
                             <i class="uil uil-medal icon"></i>
                             <span class="text nav-text " >Results</span>
@@ -62,28 +56,25 @@
                     </li>
                   </form>
 
-                    <li class="nav-link">
-                        <a href="#" id="analytics" >
+                  <form id="analyticsForm" action="/analytics" method="post">
+                    <li id="2"  onClick="reply_click(this.id)" class="nav-link">
+                        <a href="javascript:$('#analyticsForm').submit();" id="analytics" >
                             <i class='bx bx-pie-chart-alt icon' ></i>
                             <span class="text nav-text">Analytics</span>
                         </a>
                     </li>
+                  </form>
+
                     <form id="rankingsForm" action="/rankings" method="post">
-                      <li class="nav-link">
+                      <li id="3" onClick="reply_click(this.id)" class="nav-link">
                           <a href="javascript:$('#rankingsForm').submit();" id="rankings">
                               <i class="uil uil-trophy icon"></i>
                               <span class="text nav-text">Rankings</span>
                           </a>
                       </li>
                     </form>
-
-
-
-
-
-                </ul>
-            </div>
-
+                  </ul>
+              </div>
             <div class="bottom-content">
                 <li class="">
                     <a href="/">
@@ -110,10 +101,21 @@
 
     </nav>
     <script >
-    const sideBar = localStorage.getItem('sideBar');
-    if (sideBar == "open") {
-      $("nav").removeClass("close");
+    var arrID = ["1","2","3"];
+    idClicked = localStorage.getItem("selectedtab");
+    console.log(arrID.includes(idClicked));
+    if (arrID.includes(idClicked)) {
+      $("#"+idClicked).addClass("selectedtab");
     }
+    // document.querySelector('.nav-link').addEventListener("click",​function(){
+    //   var clicked = true;
+    // });​
+    function reply_click(clicked_id)
+   {
+       $("#"+clicked_id).addClass("selectedtab");
+       console.log(clicked_id);
+       localStorage.setItem("selectedtab", clicked_id);
+   }
     </script>
 
     <section class="home">
