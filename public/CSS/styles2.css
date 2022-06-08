@@ -165,7 +165,7 @@ body.dark .sidebar header .toggle{
 
 .sidebar .menu{
     margin-top: 50px;
-   
+
 }
 
 .sidebar li.search-box{
@@ -208,7 +208,7 @@ body.dark .sidebar header .toggle{
     background-color: var(--primary-color); !important
 } */
 #selectedtab{
-    background-color:var(--primary-color); 
+    background-color:var(--primary-color);
 }
 #selectedtab .icon,
 #selectedtab .text{
@@ -277,7 +277,7 @@ body.dark .mode .sun-moon i.sun{
     justify-content: center;
     border-radius: 6px;
     cursor: pointer;
-    
+
 }
 .toggle-switch .switch{
     position: relative;
@@ -483,8 +483,8 @@ body.dark .gpa{
     margin-right: auto;
     display: block;
 }
-.ranksemester{ 
-    margin-top: -18px; 
+.ranksemester{
+    margin-top: -18px;
     margin-bottom: 10px;
     display: block;
     margin-left: auto;
@@ -503,8 +503,8 @@ body.dark .ranksemester{
 }
 .rankingtable{
     position: relative;
-    /* top: -40px; */ 
-    
+    /* top: -40px; */
+
     width: 520px;
     table-layout: fixed;
     /* border-collapse: collapse; */
@@ -518,7 +518,7 @@ body.dark .ranksemester{
     font-size: 18px;
     border-spacing:0 ;
     border-radius: 13px;
-    
+
 }
 body.dark .rankingtable{
     border: solid 2px darkorange;
@@ -537,36 +537,34 @@ body.dark .rankingtable{
 body.dark .rankingtable tbody tr:hover {
     color: black;
     background-color: #ececec;
-    
+
 }
 .rankingtable thead tr{
     display: block;
     border-bottom: solid 2px #1749ff;
-    
+
 }
 body.dark .rankingtable thead tr{
-    border-bottom:solid 2px darkorange; 
+    border-bottom:solid 2px darkorange;
 }
 .rankingtable th, .rankingtable td {
     padding: 5px;
     width: 240px;
-    
+
 }
 table.rankingtable td{
     white-space: nowrap;
     overflow: hidden;
 }
-/* .rankingtable tbody tr {
-    
+ .highlight {
     background-color: #b3ff31;
-    
-} */
+}
 
 
 ::-webkit-scrollbar {
     background-color:transparent;
     width:16px
-    
+
 }
 
 /* background of the scrollbar except button or resizer */

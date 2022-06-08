@@ -38,11 +38,10 @@
         </tr>
         </thead>
         <tbody>
-
           <%rankings.forEach(function(ranking,index){%>
-            <tr class="highlight">
+            <tr class="selectedStudent <%= (ranking.Name).substring(0, (ranking.Name).indexOf(' ')) === results[0].first_name ? 'highlight' : '' %>">
               <td><%=index+1+"."%></td>
-              <td><%=ranking.Name%></td>
+               <td class=""><%=ranking.Name%></td>
               <%if (semNumber == 1 || semNumber == 2) {%>
                 <td><%=ranking.sgpa%></td>
               <%} else {%>
@@ -50,10 +49,9 @@
               <%}%>
             </tr>
           <%});%>
-
-
       </tbody>
       </table>
+
     </div>
     </div>
   </div>
