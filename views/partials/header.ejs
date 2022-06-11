@@ -52,10 +52,10 @@
 
                 <ul class="menu-links">
                   <form id="resultsForm" action="/result" method="post" >
-                    <li id="1" onClick="reply_click(this.id)" class="nav-link" >
+                    <li id="1" onClick="reply_click(this.id)" class="nav-link selectedtab " >
                         <a href="javascript:$('#resultsForm').submit();">
                             <i class="uil uil-medal icon"></i>
-                            <span class="text nav-text " >Results</span>
+                            <span class="text nav-text" >Results</span>
                         </a>
                     </li>
                   </form>
@@ -120,6 +120,7 @@
     idClicked = localStorage.getItem("selectedtab");
     console.log(arrID.includes(idClicked));
     if (arrID.includes(idClicked)) {
+      $("#1").removeClass("selectedtab");
       $("#"+idClicked).addClass("selectedtab");
     }
     // document.querySelector('.nav-link').addEventListener("click",​function(){
