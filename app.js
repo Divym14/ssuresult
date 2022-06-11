@@ -3,7 +3,7 @@ const app = express();
 const ejs = require("ejs");
 const mysql = require("mysql2");
 const bodyParser = require("body-parser");
-
+const Chart = require("chart.js");
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -126,6 +126,9 @@ app.post("/rankings", function(req,res){
 
 });
 
+app.post("/analytics",function(req,res){
+  res.render("analytics");
+});
 
 // *********************** ALl FUNCTIONS BELOW *************************
 function getRandomItem(arr) {

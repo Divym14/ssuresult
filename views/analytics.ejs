@@ -1,1 +1,57 @@
-<div class="text" id="analyticsdef" style="display: none;">Analytics</div>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+<link rel="stylesheet" href="CSS/analyticsStyles.css">
+  </head>
+  <body>
+        <div class="wrapper" >
+        <canvas id="myChart"></canvas>
+        </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      var xValues = ["PM","Calculus","EVS","LAB","CSA"];
+      const ctx = document.getElementById("myChart");
+      const myChart = new Chart(ctx,{
+        type:"line",
+        data:{
+          labels:xValues,
+          datasets:[{
+            label:"number",
+            data:[12, 19, 3, 5, 2, 3],
+            backgroundColor: "rgba(255, 99, 132, 0.2)",
+            borderColor: "rgba(255, 99, 132, 1)",
+            borderWidth:5,
+            fill:false,
+            tension:0.2
+          }]
+
+        },
+
+        options: {
+          animations: {
+      radius: {
+        duration: 400,
+        easing: 'linear',
+        loop: (context) => context.active
+      }
+    },
+    hoverRadius: 12,
+    hoverBackgroundColor: 'yellow',
+    interaction: {
+      mode: 'nearest',
+      intersect: false,
+      axis: 'x'
+    },
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+    });
+    </script>
+
+  </body>
+</html>
