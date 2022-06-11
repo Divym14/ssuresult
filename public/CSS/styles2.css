@@ -156,7 +156,8 @@ header .image-text .profession{
 }
 
 body.dark .sidebar header .toggle{
-    color: var(--text-color);
+    color: white;
+    background-color:#7c70ff ;
 }
 
 .sidebar.close .toggle{
@@ -211,16 +212,22 @@ body.dark .sidebar header .toggle{
     background-color:var(--primary-color);
     border-radius: 6px;
 }
+body.dark .selectedtab{
+    background-color: #7c70ff;
+}
 .selectedtab .icon,
 .selectedtab .text{
     color: var(--sidebar-color);
 }
 body.dark .selectedtab .icon,
 body.dark .selectedtab .text{
-    color: var(--text-color);
+    color: white;
 }
 .sidebar li a:hover{
     background-color: var(--primary-color);
+}
+body.dark .sidebar li a:hover{
+    background-color: #7c70ff;
 }
 .sidebar li a:hover .icon,
 .sidebar li a:hover .text{
@@ -228,7 +235,7 @@ body.dark .selectedtab .text{
 }
 body.dark .sidebar li a:hover .icon,
 body.dark .sidebar li a:hover .text{
-    color: var(--text-color);
+    color: white;
 }
 
 .sidebar .menu-bar{
@@ -401,7 +408,7 @@ table.roundedCorners {
       width: 1px;
   }
   #table2 td,th{
-    padding: 2px;
+    padding: 5px;
     white-space: nowrap;
     overflow: hidden;
     width: 100px;
@@ -531,6 +538,7 @@ body.dark .rankingtable{
     height: 370px;
     text-align: center;
 }
+
 .rankingtable tbody tr:hover {
     cursor:default;
     background-color: #b9b9b9;
@@ -540,16 +548,21 @@ body.dark .rankingtable tbody tr:hover {
     background-color: #ececec;
 }
 .rankingtable thead tr{
+    font-size: 22px;
     display: block;
     border-bottom: solid 2px #1749ff;
 }
 body.dark .rankingtable thead tr{
     border-bottom:solid 2px darkorange;
 }
-.rankingtable th, .rankingtable td {
+.rankingtable td {
     padding: 5px;
     width: 240px;
-
+}
+.rankingtable th{
+    padding-left: 40px;
+    padding-right: 77px;
+    width: 240px;
 }
 table.rankingtable td{
     white-space: nowrap;
@@ -605,8 +618,9 @@ footer{
     bottom:.2%;
     right:1%;
 }
+
 footer .bx{
-    font-size: 30px;
+    font-size: 35px;
     color: var(--text-color);
 }
 footer .bx:hover,
