@@ -538,12 +538,10 @@ body.dark .rankingtable{
 body.dark .rankingtable tbody tr:hover {
     color: black;
     background-color: #ececec;
-
 }
 .rankingtable thead tr{
     display: block;
     border-bottom: solid 2px #1749ff;
-
 }
 body.dark .rankingtable thead tr{
     border-bottom:solid 2px darkorange;
@@ -556,11 +554,14 @@ body.dark .rankingtable thead tr{
 table.rankingtable td{
     white-space: nowrap;
     overflow: hidden;
+    /* border-radius: 6px; */
 }
- .highlight {
+.highlight {
     background-color: #b3ff31;
 }
-
+body.dark .highlight{
+    color: black;
+}
 
 ::-webkit-scrollbar {
     background-color:transparent;
