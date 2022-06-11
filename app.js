@@ -4,7 +4,7 @@ const ejs = require("ejs");
 const mysql = require("mysql2");
 const bodyParser = require("body-parser");
 const Chart = require("chart.js");
-
+const fs = require("fs");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
@@ -127,7 +127,56 @@ app.post("/rankings", function(req,res){
 });
 
 app.post("/analytics",function(req,res){
-  res.render("analytics");
+  const rollNumber = rollArray[count-1];
+  const greetings = getRandomItem(greetingsArray);
+  var semNumber = 1;
+  if(Number.isInteger(parseInt(req.body.semester))){
+    semNumber = req.body.semester;
+    if (semNumber==3) {
+      querySemNumber = 2;
+    }else{
+      querySemNumber = semNumber;
+    }
+  }
+  else{
+    semNumber = 1;
+    querySemNumber = semNumber;
+  }
+
+  connection.query('SELECT * FROM (students inner join Dept on students.Dept_id = Dept.id \
+    inner join  results on students.id = results.student_id)\
+   inner join courses on results.course_id = courses.id \
+  WHERE regd_no ="'+ rollNumber+'"'+"AND Results.sem_number="+semNumber,
+  function(err,results,fields){
+    if (err) {
+      console.log(err);
+    }else{
+         
+    }
+
+
+        fs.readFile("views/analytics.ejs", 'utf8', function (err,data) {
+          var chartData = [10,20,30,40,50];
+          if (err) {
+             console.log(err);
+          }
+        var result = data.replace('{{chartData}}', JSON.stringify(chartData));
+
+        fs.writeFile("views/analytics.ejs", result, 'utf8', function (err) {
+           if (err) {console.log(err)};
+           res.write(result);
+        });
+      });
+
+
+    res.render("analytics",{
+      results:results,
+      greetings:greetings,
+      semNumber:semNumber
+    });
+  })
+
+
 });
 
 // *********************** ALl FUNCTIONS BELOW *************************
