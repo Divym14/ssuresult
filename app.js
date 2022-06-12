@@ -5,6 +5,11 @@ const mysql = require("mysql2");
 const bodyParser = require("body-parser");
 const Chart = require("chart.js");
 const fs = require("fs");
+const { createCanvas, loadImage } = require('canvas');
+
+
+
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
@@ -132,15 +137,10 @@ app.post("/analytics",function(req,res){
   var semNumber = 1;
   if(Number.isInteger(parseInt(req.body.semester))){
     semNumber = req.body.semester;
-    if (semNumber==3) {
-      querySemNumber = 2;
-    }else{
-      querySemNumber = semNumber;
-    }
+
   }
   else{
     semNumber = 1;
-    querySemNumber = semNumber;
   }
 
   connection.query('SELECT * FROM (students inner join Dept on students.Dept_id = Dept.id \
@@ -151,34 +151,83 @@ app.post("/analytics",function(req,res){
     if (err) {
       console.log(err);
     }else{
-         
+         // console.log(results);
     }
 
-
-        fs.readFile("views/analytics.ejs", 'utf8', function (err,data) {
-          var chartData = [10,20,30,40,50];
-          if (err) {
-             console.log(err);
-          }
-        var result = data.replace('{{chartData}}', JSON.stringify(chartData));
-
-        fs.writeFile("views/analytics.ejs", result, 'utf8', function (err) {
-           if (err) {console.log(err)};
-           res.write(result);
+    const canvas = createCanvas(200, 200);
+    const ctx = canvas.getContext('2d');
+        // fs.readFile("views/analytics.ejs", 'utf8', function (err,data) {
+        //   var chartData = [10,20,30,50,60];
+        //   if (err) {
+        //      console.log(err);
+        //   }
+        // var result = data.replace('{{chartData}}', JSON.stringify(chartData));
+        //
+        // fs.writeFile("views/analytics.ejs", result, 'utf8', function (err) {
+        //    if (err) {console.log(err)};
+        //
+        // });
+        res.render("analytics",{
+          results:results,
+          greetings:greetings,
+          semNumber:semNumber
         });
       });
 
 
-    res.render("analytics",{
-      results:results,
-      greetings:greetings,
-      semNumber:semNumber
-    });
-  })
+
+  });
 
 
+// });
+
+
+app.get("/analytics/data",function(req,res){
+  //Fetching Roll Number
+  const rollNumber =rollArray[count-1];
+
+  //Fetching Semester Number
+  var semNumber = 1;
+  if(Number.isInteger(parseInt(req.body.semester))){
+    semNumber = req.body.semester;
+  }
+  else{
+    semNumber = 1;
+  }
+
+  // Arrays to store name and total for the particular subject
+  var subjectName = [];
+  var subjectTotal = [];
+
+  //mysql connection to database
+    connection.query('SELECT * FROM (students inner join Dept on students.Dept_id = Dept.id \
+      inner join  results on students.id = results.student_id)\
+     inner join courses on results.course_id = courses.id \
+    WHERE regd_no ="'+ rollNumber+'"'+"AND Results.sem_number="+semNumber,
+    function(err,results,fields){
+      if (err) {
+        console.log(err);
+      }else{
+        results.forEach(function(result){
+          subjectName.push(result.name);
+          subjectTotal.push((result.internal+result.end_sem));
+        });
+
+
+        const mapArrays = (options, values) => {
+         const sender = [];
+         for(let i = 0; i < options.length; i++){
+            sender.push({
+               opt: options[i],
+               val: values[i]
+            });
+         };
+         return sender;
+      };
+           res.send(mapArrays(subjectName,subjectTotal));
+      }
+    })
 });
-
 // *********************** ALl FUNCTIONS BELOW *************************
 function getRandomItem(arr) {
 
