@@ -198,7 +198,9 @@ app.get("/analytics/data",function(req,res){
   // Arrays to store name and total for the particular subject
   var subjectName = [];
   var subjectTotal = [];
-
+  var avgData = [78.77,73.32,79.35,63.80,83.10];
+  var topData = [98,95,93,88,99];
+  var resultArray = [];
   //mysql connection to database
     connection.query('SELECT * FROM (students inner join Dept on students.Dept_id = Dept.id \
       inner join  results on students.id = results.student_id)\
@@ -208,23 +210,16 @@ app.get("/analytics/data",function(req,res){
       if (err) {
         console.log(err);
       }else{
+        console.log(results);
         results.forEach(function(result){
           subjectName.push(result.name);
           subjectTotal.push((result.internal+result.end_sem));
         });
 
-
-        const mapArrays = (options, values) => {
-         const sender = [];
-         for(let i = 0; i < options.length; i++){
-            sender.push({
-               opt: options[i],
-               val: values[i]
-            });
-         };
-         return sender;
-      };
-           res.send(mapArrays(subjectName,subjectTotal));
+       resultArray[0] = mapArrays(subjectName,subjectTotal);
+       resultArray[1] = avgData;
+       resultArray[2] = topData;
+       res.send(resultArray);
       }
     })
 });
@@ -240,6 +235,16 @@ function getRandomItem(arr) {
     return item;
 }
 
+const mapArrays = (options, values) => {
+ const sender = [];
+ for(let i = 0; i < options.length; i++){
+    sender.push({
+       opt: options[i],
+       val: values[i]
+    });
+ };
+ return sender;
+};
 
 app.listen(3000, function(){
   console.log("Server has started at port 3000");

@@ -6,7 +6,8 @@
     <script>
       var subjectsName = [];
       var subjectsTotal =[];
-
+      var avgData = [];
+      var topData = [];
 
       async function dummyChart(){
         await getDummyData();
@@ -27,9 +28,18 @@
             },
             {
               label:"Average",
-              data:[14, 15, 32, 53, 42, 3],
+              data:avgData,
               backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderColor: "rgba(255, 99, 132, 1)",
+              borderColor: "rgba(26, 37, 122)",
+              borderWidth:5,
+              fill:false,
+              tension:0.2
+            },
+            {
+              label:"Top",
+              data:topData,
+              backgroundColor: "rgba(255, 99, 132, 0.2)",
+              borderColor: "rgba(66, 245, 126)",
               borderWidth:5,
               fill:false,
               tension:0.2
@@ -69,10 +79,13 @@
 
       const response = await fetch(apiUrl);
       const chartsData = await response.json();
-      chartsData.forEach(function(chartData,index){
+      chartsData[0].forEach(function(chartData,index){
         subjectsName[index] = chartData.opt;
         subjectsTotal[index] = chartData.val;
       });
+
+      avgData = chartsData[1];
+      topData = chartsData[2];
 
 
     }
