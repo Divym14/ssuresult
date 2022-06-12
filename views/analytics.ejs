@@ -1,7 +1,17 @@
 <%-include("partials/header")%>
+  <div class="text" id="rankingsdef" ><span class="resultscolor">Analytics<hr></span>
+    <div class="dropdown-menu">
+      <form action="" method="post">
+          <select name="semester" class="analyticsemester" onchange="">
+            <option id="1" value="1" >Semester 1</option>
+            <option id="2" value="2" >Semester 2</option>
+          </select>
+      </form>
         <div class="chartWrapper" >
         <canvas id="myChart"></canvas>
         </div>
+    </div>
+  </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
       var subjectsName = [];
@@ -20,27 +30,27 @@
             datasets:[{
               label:"You",
               data:subjectsTotal,
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderColor: "rgba(255, 99, 132, 1)",
-              borderWidth:5,
+              // backgroundColor: "rgba(255, 99, 132, 0.2)",
+              borderColor: "rgb(255, 23, 23)",
+              borderWidth:4,
               fill:false,
               tension:0.2
             },
             {
               label:"Average",
               data:avgData,
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderColor: "rgba(26, 37, 122)",
-              borderWidth:5,
+              // backgroundColor: "rgba(255, 99, 132, 0.2)",
+              borderColor: "rgb(17, 237, 222)",
+              borderWidth:4,
               fill:false,
               tension:0.2
             },
             {
-              label:"Top",
+              label:"Highest",
               data:topData,
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
+              // backgroundColor: "rgba(255, 99, 132, 0.2)",
               borderColor: "rgba(66, 245, 126)",
-              borderWidth:5,
+              borderWidth:4,
               fill:false,
               tension:0.2
             }]
@@ -64,7 +74,42 @@
       },
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    title: {
+                      display: true,
+                      text: 'MARKS',
+                      font:{
+                        weight:'bolder',
+                        size:'17',
+                      }
+                    },
+                    ticks:{
+                       color:'rgb(13, 94, 224)' 
+                    },
+                    grid:{
+                      borderColor:'rgb(13, 94, 224)',
+                      color:'rgb(77, 227, 227,0.5)',
+                      // display:false
+                    }
+                  }, 
+                x: {
+                    beginAtZero: true,
+                    title: {
+                      display: true,
+                      text: 'SUBJECTS',
+                      font:{
+                        weight:'bolder',
+                        size:'17',
+                      },
+                    },
+                    ticks:{
+                       color:'rgb(13, 94, 224)' 
+                    },
+                    grid:{
+                      borderColor:'rgb(13, 94, 224)',
+                      color:'rgb(77, 227, 227,0.5)',
+                      // display:false
+                    }                   
                 }
             }
         }
