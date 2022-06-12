@@ -14,9 +14,27 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
-app.get("/", function(req,res){
-  res.render("index")
+const quotesArray = ["Human evolution has two steps - from being somebody to being nobody; and from being nobody to being everybody. This knowledge can bring sharing and caring throughout the world."
+,"Love is not an emotion. It is your very existence.","Faith is realizing that you always get what you need.","Today is a gift from God - that is why it is called the present.",
+"Difference between motivation and inspiration - Motivation is external and short lived. Inspiration is internal and lifelong","Life is nothing to be very serious about. Life is a ball in your hands to play with. Don’t hold on to the ball.",
+"If you can win over your mind, you can win over the whole world.","Life works on strange laws of nature (Karma). One never knows when a friend turns enemy & vice-versa. Rely on your Self; self-reliance",
+"why can't we control our anger? because we love perfection. make a little room for imperfection in our lives."]
+
+
+
+
+app.get("/",function(req,res){
+  const quotes = getRandomItem(quotesArray);
+  res.render("index",{
+    quotes:quotes
+  })
+  
 });
+// app.get("/", function(req,res){
+//   res.render("index")
+// });
+
+  
 
 // create the connection to database
 const connection = mysql.createConnection({
