@@ -28,13 +28,13 @@ app.get("/",function(req,res){
   res.render("index",{
     quotes:quotes
   })
-  
+
 });
 // app.get("/", function(req,res){
 //   res.render("index")
 // });
 
-  
+
 
 // create the connection to database
 const connection = mysql.createConnection({
@@ -216,19 +216,19 @@ app.get("/analytics/data",function(req,res){
   // Arrays to store name and total for the particular subject
   var subjectName = [];
   var subjectTotal = [];
-  var avgData = [78.77,73.32,79.35,63.80,83.10];
-  var topData = [98,95,93,88,99];
+  var avgData = [78.77,73.32,79.35,63.80,83.10,77.95,71.57,79.42,67.35,76.20,70.30];
+  var topData = [98,95,93,88,99,95,94,91,85,98,89];
   var resultArray = [];
   //mysql connection to database
     connection.query('SELECT * FROM (students inner join Dept on students.Dept_id = Dept.id \
       inner join  results on students.id = results.student_id)\
      inner join courses on results.course_id = courses.id \
-    WHERE regd_no ="'+ rollNumber+'"'+"AND Results.sem_number="+semNumber,
+    WHERE regd_no ="'+ rollNumber+'"',
     function(err,results,fields){
       if (err) {
         console.log(err);
       }else{
-        console.log(results);
+        // console.log(results);
         results.forEach(function(result){
           subjectName.push(result.name);
           subjectTotal.push((result.internal+result.end_sem));

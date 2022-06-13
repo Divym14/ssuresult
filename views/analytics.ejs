@@ -1,12 +1,10 @@
 <%-include("partials/header")%>
   <div class="text" id="rankingsdef" ><span class="resultscolor">Analytics<hr></span>
     <div class="dropdown-menu">
-      <form action="" method="post">
-          <select name="semester" class="analyticsemester" onchange="">
+          <select name="semester" class="analyticsemester" >
             <option id="1" value="1" >Semester 1</option>
             <option id="2" value="2" >Semester 2</option>
           </select>
-      </form>
         <div class="chartWrapper" >
         <canvas id="myChart"></canvas>
         </div>
@@ -14,126 +12,267 @@
   </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-      var subjectsName = [];
-      var subjectsTotal =[];
-      var avgData = [];
-      var topData = [];
 
-      async function dummyChart(){
-        await getDummyData();
 
-        const ctx = document.getElementById("myChart");
-        const myChart = new Chart(ctx,{
-          type:"line",
-          data:{
-            labels:subjectsName,
-            datasets:[{
-              label:"You",
-              data:subjectsTotal,
-              // backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderColor: "rgb(255, 23, 23)",
-              borderWidth:4,
-              fill:false,
-              tension:0.2
+        var subjectsName = [];
+        var subjectsTotal =[];
+        var renderName = [];
+        var renderTotal = [];
+        var avgData = [];
+        var topData = [];
+        var renderAvgData = [];
+        var renderTopData = [];
+        var semNumber = 1;
+        async function dummyChart(){
+          await getDummyData();
+
+          const ctx = document.getElementById("myChart");
+          const myChart = new Chart(ctx,{
+            type:"line",
+            data:{
+              labels:renderName,
+              datasets:[{
+                label:"You",
+                data:renderTotal,
+                // backgroundColor: "rgba(255, 99, 132, 0.2)",
+                borderColor: "rgb(255, 23, 23)",
+                borderWidth:4,
+                fill:false,
+                tension:0.2
+              },
+              {
+                label:"Average",
+                data:renderAvgData,
+                // backgroundColor: "rgba(255, 99, 132, 0.2)",
+                borderColor: "rgb(17, 237, 222)",
+                borderWidth:4,
+                fill:false,
+                tension:0.2
+              },
+              {
+                label:"Highest",
+                data:renderTopData,
+                // backgroundColor: "rgba(255, 99, 132, 0.2)",
+                borderColor: "rgba(66, 245, 126)",
+                borderWidth:4,
+                fill:false,
+                tension:0.2
+              }]
+
             },
-            {
-              label:"Average",
-              data:avgData,
-              // backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderColor: "rgb(17, 237, 222)",
-              borderWidth:4,
-              fill:false,
-              tension:0.2
-            },
-            {
-              label:"Highest",
-              data:topData,
-              // backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderColor: "rgba(66, 245, 126)",
-              borderWidth:4,
-              fill:false,
-              tension:0.2
-            }]
 
-          },
-
-          options: {
-            animations: {
-        radius: {
-          duration: 400,
-          easing: 'linear',
-          loop: (context) => context.active
-        }
-      },
-      hoverRadius: 12,
-      hoverBackgroundColor: 'yellow',
-      interaction: {
-        mode: 'nearest',
-        intersect: false,
-        axis: 'x'
-      },
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: {
-                      display: true,
-                      text: 'MARKS',
-                      font:{
-                        weight:'bolder',
-                        size:'17',
+            options: {
+              animations: {
+          radius: {
+            duration: 400,
+            easing: 'linear',
+            loop: (context) => context.active
+          }
+        },
+        hoverRadius: 12,
+        hoverBackgroundColor: 'yellow',
+        interaction: {
+          mode: 'nearest',
+          intersect: false,
+          axis: 'x'
+        },
+              scales: {
+                  y: {
+                      beginAtZero: true,
+                      title: {
+                        display: true,
+                        text: 'MARKS',
+                        font:{
+                          weight:'bolder',
+                          size:'17',
+                        }
+                      },
+                      ticks:{
+                         color:'rgb(13, 94, 224)'
+                      },
+                      grid:{
+                        borderColor:'rgb(13, 94, 224)',
+                        color:'rgb(77, 227, 227,0.5)',
+                        // display:false
                       }
                     },
-                    ticks:{
-                       color:'rgb(13, 94, 224)' 
-                    },
-                    grid:{
-                      borderColor:'rgb(13, 94, 224)',
-                      color:'rgb(77, 227, 227,0.5)',
-                      // display:false
-                    }
-                  }, 
-                x: {
-                    beginAtZero: true,
-                    title: {
-                      display: true,
-                      text: 'SUBJECTS',
-                      font:{
-                        weight:'bolder',
-                        size:'17',
+                  x: {
+                      beginAtZero: true,
+                      title: {
+                        display: true,
+                        text: 'SUBJECTS',
+                        font:{
+                          weight:'bolder',
+                          size:'17',
+                        },
                       },
-                    },
-                    ticks:{
-                       color:'rgb(13, 94, 224)' 
-                    },
-                    grid:{
-                      borderColor:'rgb(13, 94, 224)',
-                      color:'rgb(77, 227, 227,0.5)',
-                      // display:false
-                    }                   
-                }
+                      ticks:{
+                         color:'rgb(13, 94, 224)'
+                      },
+                      grid:{
+                        borderColor:'rgb(13, 94, 224)',
+                        color:'rgb(77, 227, 227,0.5)',
+                        // display:false
+                      }
+                  }
+              }
+          }
+
+        });
+
+        $('select').on('change', function() {
+          clearAndAddNewDataSets(this.value);
+        });
+
+
+
+        function clearAndAddNewDataSets(semNumber) {
+          myChart.config.data.datasets = [];
+          myChart.config.data.labels = [];
+          var labels = [];
+          var innerLabels = ["You", "Average", "Highest"];
+          var data = [];
+          var colors = ["rgb(255, 23, 23)","rgb(17, 237, 222)","rgba(66, 245, 126)"]
+          var options = {
+           animations: {
+       radius: {
+         duration: 400,
+         easing: 'linear',
+         loop: (context) => context.active
+       }
+     },
+     hoverRadius: 12,
+     hoverBackgroundColor: 'yellow',
+     interaction: {
+       mode: 'nearest',
+       intersect: false,
+       axis: 'x'
+     },
+           scales: {
+               y: {
+                   beginAtZero: true,
+                   title: {
+                     display: true,
+                     text: 'MARKS',
+                     font:{
+                       weight:'bolder',
+                       size:'17',
+                     }
+                   },
+                   ticks:{
+                      color:'rgb(13, 94, 224)'
+                   },
+                   grid:{
+                     borderColor:'rgb(13, 94, 224)',
+                     color:'rgb(77, 227, 227,0.5)',
+                     // display:false
+                   }
+                 },
+               x: {
+                   beginAtZero: true,
+                   title: {
+                     display: true,
+                     text: 'SUBJECTS',
+                     font:{
+                       weight:'bolder',
+                       size:'17',
+                     },
+                   },
+                   ticks:{
+                      color:'rgb(13, 94, 224)'
+                   },
+                   grid:{
+                     borderColor:'rgb(13, 94, 224)',
+                     color:'rgb(77, 227, 227,0.5)',
+                     // display:false
+                   }
+               }
+           }
+       }
+
+
+
+
+          if( semNumber == 1 ){
+            for(var i=0;i<5;i++){
+              labels[i]=subjectsName[i];
+              data[0][i] = subjectsTotal[i];
+              data[1][i] = avgData[i];
+              data[2][i] = topData[i];
+              }
+
+              myChart.config.data.labels = labels;
+
+              for (i = 0; i < data.length; i++) {
+                 var dataSet = {
+                        label: innerLabels[i] ,
+                        data: data[i],
+                        borderColor:colors[i] ,
+                        borderWidth:4,
+                        fill:false,
+                        tension:0.2
+                      }
+                myChart.config.data.datasets.push(dataSet);
+                    }
+                myChart.config.data.options = options;
+                myChart.update();
+          } //if 1 ends here
+
+
+
+
+
+
+
+          var colors = ['Red', 'Green'];
+          myChart.config.data.labels = labels;
+          for (i = 0; i < data.length; i++) {
+                 var dataSet = {
+               label: 'testLabel' + i,
+              data: data[i],
+              backgroundColor: colors[i]
             }
+            myChart.config.data.datasets.push(dataSet);
+          }
+          myChart.update();
         }
-      });
-      }
+        }
 
-    dummyChart();
-
-
-    async function getDummyData() {
-     const apiUrl = "http://localhost:3000/analytics/data"
-
-      const response = await fetch(apiUrl);
-      const chartsData = await response.json();
-      chartsData[0].forEach(function(chartData,index){
-        subjectsName[index] = chartData.opt;
-        subjectsTotal[index] = chartData.val;
-      });
-
-      avgData = chartsData[1];
-      topData = chartsData[2];
+      dummyChart();
 
 
-    }
+      async function getDummyData() {
+       const apiUrl = "http://localhost:3000/analytics/data"
+
+        const response = await fetch(apiUrl);
+        const chartsData = await response.json();
+        console.log(chartsData);
+        chartsData[0].forEach(function(chartData,index){
+          subjectsName[index] = chartData.opt;
+          subjectsTotal[index] = chartData.val;
+        });
+
+        avgData = chartsData[1];
+        topData = chartsData[2];
+
+        for (var i = 0; i < 5; i++) {
+          renderName=subjectsName[i];
+          renderTotal=subjectsTotal[i];
+          renderAvgData=avgData[i];
+          renderTopData=topData[i];
+        }
+
+  }
+
+
+
+
+
+
+
+
+
+
 
 
     </script>
