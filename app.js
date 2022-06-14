@@ -174,17 +174,7 @@ app.post("/analytics",function(req,res){
 
     const canvas = createCanvas(200, 200);
     const ctx = canvas.getContext('2d');
-        // fs.readFile("views/analytics.ejs", 'utf8', function (err,data) {
-        //   var chartData = [10,20,30,50,60];
-        //   if (err) {
-        //      console.log(err);
-        //   }
-        // var result = data.replace('{{chartData}}', JSON.stringify(chartData));
-        //
-        // fs.writeFile("views/analytics.ejs", result, 'utf8', function (err) {
-        //    if (err) {console.log(err)};
-        //
-        // });
+
         res.render("analytics",{
           results:results,
           greetings:greetings,
@@ -197,7 +187,7 @@ app.post("/analytics",function(req,res){
   });
 
 
-// });
+
 
 
 app.get("/analytics/data",function(req,res){

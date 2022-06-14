@@ -16,13 +16,10 @@
 
         var subjectsName = [];
         var subjectsTotal =[];
-        var renderName = [];
-        var renderTotal = [];
         var avgData = [];
         var topData = [];
-        var renderAvgData = [];
-        var renderTopData = [];
         var semNumber = 1;
+
         async function dummyChart(){
           await getDummyData();
 
@@ -30,10 +27,10 @@
           const myChart = new Chart(ctx,{
             type:"line",
             data:{
-              labels:renderName,
+              labels:subjectsName.slice(0,5),
               datasets:[{
                 label:"You",
-                data:renderTotal,
+                data:subjectsTotal.slice(0,5),
                 // backgroundColor: "rgba(255, 99, 132, 0.2)",
                 borderColor: "rgb(255, 23, 23)",
                 borderWidth:4,
@@ -42,7 +39,7 @@
               },
               {
                 label:"Average",
-                data:renderAvgData,
+                data:avgData.slice(0,5),
                 // backgroundColor: "rgba(255, 99, 132, 0.2)",
                 borderColor: "rgb(17, 237, 222)",
                 borderWidth:4,
@@ -51,7 +48,7 @@
               },
               {
                 label:"Highest",
-                data:renderTopData,
+                data:topData.slice(0,5),
                 // backgroundColor: "rgba(255, 99, 132, 0.2)",
                 borderColor: "rgba(66, 245, 126)",
                 borderWidth:4,
@@ -194,14 +191,13 @@
 
 
           if( semNumber == 1 ){
-            for(var i=0;i<5;i++){
-              labels[i]=subjectsName[i];
-              data[0][i] = subjectsTotal[i];
-              data[1][i] = avgData[i];
-              data[2][i] = topData[i];
-              }
+            labels=subjectsName.slice(0,5);
+            data[0] = subjectsTotal.slice(0,5) ;
+            data[1] = avgData.slice(0,5);
+            data[2] = topData.slice(0,5);
 
-              myChart.config.data.labels = labels;
+
+            myChart.config.data.labels = labels;
 
               for (i = 0; i < data.length; i++) {
                  var dataSet = {
@@ -218,25 +214,31 @@
                 myChart.update();
           } //if 1 ends here
 
+          if( semNumber == 2 ){
+            labels=subjectsName.slice(5,11);
+            data[0] = subjectsTotal.slice(5,11) ;
+            data[1] = avgData.slice(5,11);
+            data[2] = topData.slice(5,11);
 
 
+            myChart.config.data.labels = labels;
 
-
-
-
-          var colors = ['Red', 'Green'];
-          myChart.config.data.labels = labels;
-          for (i = 0; i < data.length; i++) {
+              for (i = 0; i < data.length; i++) {
                  var dataSet = {
-               label: 'testLabel' + i,
-              data: data[i],
-              backgroundColor: colors[i]
-            }
-            myChart.config.data.datasets.push(dataSet);
+                        label: innerLabels[i] ,
+                        data: data[i],
+                        borderColor:colors[i] ,
+                        borderWidth:4,
+                        fill:false,
+                        tension:0.2
+                      }
+                myChart.config.data.datasets.push(dataSet);
+                    }
+                myChart.config.data.options = options;
+                myChart.update();
+          } //if 2 ends here
           }
-          myChart.update();
-        }
-        }
+    }
 
       dummyChart();
 
@@ -255,26 +257,10 @@
         avgData = chartsData[1];
         topData = chartsData[2];
 
-        for (var i = 0; i < 5; i++) {
-          renderName=subjectsName[i];
-          renderTotal=subjectsTotal[i];
-          renderAvgData=avgData[i];
-          renderTopData=topData[i];
-        }
+
+
 
   }
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
 
 <%-include("partials/footer")%>
