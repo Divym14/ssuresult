@@ -120,11 +120,11 @@ header .image-text .name {
     font-weight: 600;
 }
 
-header .image-text .profession{
+/* header .image-text .profession{
     font-size: 16px;
     margin-top: -2px;
     display: block;
-}
+} */
 
 .sidebar header .image{
     display: flex;
@@ -661,4 +661,75 @@ body.dark .analyticsemester{
 }
  body.dark .analyticsemester select option{
        color: #18191a;
+}
+
+
+/* *******************responsive******************* */
+
+@media only screen and (max-width : 768px) and (min-width:481px){
+    body{
+        overflow: auto;
+        overflow-y: hidden;
+    }
+    .sidebar{
+        height: 100%;
+        width: 170px;
+        padding: 5px 10px;
+    }
+    .sidebar.close{
+        width: 70px;
+    }
+    .sidebar header .image,
+    .sidebar .icon{
+        min-width: 50px;
+        border-radius: 6px;
+    }
+    .sidebar .icon{
+        min-width: 50px;
+        font-size: 15px;
+    }
+    .sidebar .text{
+        font-size: 14px;
+        font-weight: 450;
+    }
+    header .image-text .name {
+        margin-top: 4px;
+        font-size: 1.2rem;
+        font-weight: 550;
+    }
+    .sidebar header .image img{
+        width: 35px;
+    }
+    .sidebar header .toggle{
+        right: -20px;
+        height: 20px;
+        width: 20px;
+        font-size: 20px;
+    }
+    .sidebar li.search-box input{
+        font-size: 14px;
+        font-weight: 450;
+    }
+    .menu-bar .mode .sun-moon{
+        height: 50px;
+        width: 50px;
+    }
+    .menu-bar .bottom-content .toggle-switch{
+        min-width: 50px;
+    
+    }
+    .toggle-switch .switch{
+        height: 18px;
+        width: 34px;
+    }
+    
+    .switch::before{
+        height: 11px;
+        width: 11px;
+        left: 5px;
+    }
+    
+    body.dark .switch::before{
+        left: 18px;
+    }
 }
